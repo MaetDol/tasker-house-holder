@@ -1,2 +1,2 @@
-let item = '◉' + type + ';' + store + ';' + memo
-writeFile('./storeList', item, true )
+let item = `◉${type};${store};${memo}`;
+writeFile('./storeList', item, true );

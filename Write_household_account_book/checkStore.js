@@ -48,8 +48,5 @@ function parseNum( str ) {
 	if( currency == null ) {
 		currency = ['원']
 	}
-	return [
-		r, 
-		currency[0]
-	]
+	return [ r, currency[0] ];
 }
