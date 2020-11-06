@@ -1,0 +1,1 @@
+Tasker JS document: [https://tasker.joaoapps.com/userguide/en/javascript.html]
