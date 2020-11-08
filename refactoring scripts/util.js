@@ -1,5 +1,5 @@
 
-function isDirExist( path ) {
+function isDirExists( path ) {
   try { listFiles( path ); } 
   catch(_) { return false; }
   return true;
