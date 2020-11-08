@@ -1,5 +1,4 @@
 
-
 // 결제 확인 문자인지 확인
 const sms = global('SMSRB');
 const purchase = new Purchase( sms, ShinhanCheckParser );
@@ -21,17 +20,20 @@ const store = getStore( purchase.info.store );
 if( store ) {
   const price = purchase.info.price;
   const memo = store.memo || store.store;
-  writeSheet([
+  writeSheet({
     price,
-    store.type,
+    type: store.type,
     memo,
-  ].join( DATA_SEPARATOR ));
+  });
 
   notify({
     title: '메모 완료!',
     text: `${memo}에서 ${price}원을 결제하셨네요. 메모 해두겠습니다.`
   });
 } else {
-  // TODO: Notify with action in javascript?
-  notify();
+  notifyNewStore({
+    store: purchase.info.store,
+    price: purchase.info.price,
+    type: '기타',
+  });
 }
