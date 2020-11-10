@@ -61,7 +61,7 @@ function getStore( store ) {
     .split('\n')
     .map( r => r.split(';'))
     .map(([type, store, memo]) => {type, store, memo});
-  return stores.find( s => s.store === store );
+  return stores.find( s => s?.store === store );
 }
 
 /*
