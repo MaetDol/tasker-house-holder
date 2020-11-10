@@ -4,10 +4,9 @@ const purchase = new Purchase( sms, ShinhanCheckParser );
 if( purchase.isNot ) exit();
 
 // 가게 정보를 담는 파일의 상위경로가 없다면 생성
-if( !isDirExists( FILE_DIR ) ) {
-  createDirectory( FILE_DIR );
-  writeTo( FILE_PATH, '' );
-}
+if( !isDirExists( FILE_DIR ) ) createDirectory( FILE_DIR );
+// 파일이 존재하는지 확인하는 것 보단 작성하는게 더 저렴할 지도 모른다
+writeTo( FILE_PATH, '' );
 
 // 알림이 띄워진 상태면 시트에 그대로 작성
 const notifyInfo = global( GLOBAL_NOTIFY );
