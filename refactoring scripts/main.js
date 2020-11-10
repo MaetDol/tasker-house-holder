@@ -1,11 +1,13 @@
-
 // 결제 확인 문자인지 확인
 const sms = global('SMSRB');
 const purchase = new Purchase( sms, ShinhanCheckParser );
 if( purchase.isNot ) exit();
 
 // 가게 정보를 담는 파일의 상위경로가 없다면 생성
-if( !isDirExists( FILE_DIR ) ) createDirectory( FILE_DIR );
+if( !isDirExists( FILE_DIR ) ) {
+  createDirectory( FILE_DIR );
+  writeTo( FILE_PATH, '' );
+}
 
 // 알림이 띄워진 상태면 시트에 그대로 작성
 const notifyInfo = global( GLOBAL_NOTIFY );

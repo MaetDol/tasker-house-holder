@@ -1,4 +1,4 @@
-const FILE_DIR = 'Tasker/Write_househod_account_book/';
+const FILE_DIR = 'Download/uhab/';
 const FILE_PATH = FILE_DIR + 'storeList';
 
 const NOTIFY_TITLE = '가계부 - 처음보는 곳이에요';
