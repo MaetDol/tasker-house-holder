@@ -71,7 +71,6 @@ function notify({ title, text }) {
   performTask('Notify', 1, title, text );
 }
 
-function notifyNewStore({ store, price, type }) {
-  const data = [store, price, type].join( DATA_SEPARATOR );
-  performTask('Notify new store', 1, data );
+function notifyNewStore( str ) {
+  performTask('Notify new store', 1, str );
 }
