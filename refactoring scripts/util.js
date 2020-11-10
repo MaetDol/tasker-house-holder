@@ -60,8 +60,8 @@ function getStore( store ) {
   const stores = readFile( FILE_PATH )
     .split('\n')
     .map( r => r.split(';'))
-    .map(([type, store, memo]) => {type, store, memo});
-  return stores.find( s => s.store === store );
+    .map(([type, store, memo]) => new Data({type, store, memo}));
+  return stores.find( s => s.get('store') === store );
 }
 
 /*
