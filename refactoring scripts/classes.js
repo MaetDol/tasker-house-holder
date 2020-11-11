@@ -46,7 +46,7 @@ class Data {
   }
   
   static fromNotifyFormat( str ) {
-    const [price, type, store, memo] = str.splist( DATA_SEPARATOR );
+    const [price, type, store, memo] = str.split( DATA_SEPARATOR );
     return new this({ price, type, store, memo });
   }
 }
