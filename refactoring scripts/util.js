@@ -13,34 +13,11 @@ function writeTo( path, str ) {
   writeFile( path, str, true );
 }
 
-function parseData( data ) {
-  return data.split( DATA_SEPARATOR );
-}
-
 /*
   TODO: create 'Clear notify' Task
 */
 function clearNotify( title ) {
   performTask('Clear notify', 1, title );
-}
-
-/*
-  TODO: create 'Write google sheet' Task
-*/
-function writeSheet( data ) {
-  const str = formattingSheetForm( data );
-  performTask('Write google sheet', 1, str );
-}
-
-function formattingSheetForm({ price, type, memo }) {
-  const columns = [price, type, memo].join( DATA_SEPARATOR );
-  let datePrefix = '';
-  if( isFirstWriteOfDay() ) {
-    setGlobal( GLOBAL_UPDATED_DATE, now().date );
-    datePrefix = ROW_SEPARATOR + now().date;
-  }
-  datePrefix += DATA_SEPARATOR;
-  return datePrefix + DATA_SEPARATOR + columns;
 }
 
 function now() {
