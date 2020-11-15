@@ -92,3 +92,45 @@ class ShinhanCheckParser extends Parser {
   }
 
 }
+
+class Spreadsheet() {
+
+  constructor( sheet, headers ) {
+    this.sheet = sheet;
+    this.headers = headers;
+    this.id = this.#id();
+    this.baseUrl = this.#baseUrl();
+  }
+
+  #id() {
+    const url = global( GLOBAL_SHEET_LINK );
+    return url.match(/\/d\/(\w+)\/?/)?[1];
+  }
+
+  #baseUrl() {
+    return `https://sheets.googleapis.com/v4/spreadsheets/${this.id}`;
+  }
+
+  #valuesUrl( sheet, range ) {
+    return `${this.baseUrl}/values/${sheet}!${range}`;
+  }
+
+  #request( url ) {
+    return fetch( url, this.headers );
+  }
+
+  #lastRowIndex() {
+    const url = this.#valuesUrl( this.sheet, 'C:C' );
+    return this.#request( url ).then( r => r.values.length );
+  }
+  
+  async append( data ) {
+    const lastRow = await this.#lastRowIndex();
+    // if first write of the day, should start A or C
+    const url = this.#valuesUrl( this.sheet, `A${lastRow+1}` );
+    // Data into array
+    // Send post?
+    // body..
+    performTask('Write google sheet', 1, data.toSheetFormat() );
+  }
+}
