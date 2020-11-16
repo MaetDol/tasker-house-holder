@@ -28,10 +28,8 @@ class Data {
 
   toSheetFormat() {
     const {price, type, memo} = this.data;
-    const columns = [price, type, memo].join( DATA_SEPARATOR );
-    let datePrefix = isFirstWriteOfDay() ? ROW_SEPARATOR + now().date : '';
-    datePrefix += DATA_SEPARATOR;
-    return datePrefix + DATA_SEPARATOR + columns;
+    let datePrefix = isFirstWriteOfDay() ? [[], now().date] : [''];
+    return JSON.stringify([...datePrefix, '', price, type, memo]);
   }
 
   toNotifyFormat() {
@@ -95,9 +93,10 @@ class ShinhanCheckParser extends Parser {
 
 class Spreadsheet {
 
-  constructor( sheet, headers ) {
+  constructor( sheet, auth ) {
     this.sheet = sheet;
-    this.headers = headers;
+    const a = auth.split(':');
+    this.auth = { [a[0]]: a[1] };
     this.id = this.#id();
     this.baseUrl = this.#baseUrl();
   }
@@ -112,11 +111,11 @@ class Spreadsheet {
   }
 
   #valuesUrl( sheet, range ) {
-    return `${this.baseUrl}/values/${sheet}!${range}`;
+    return `${this.baseUrl}/values/${sheet}!${range}?valueInputOption=RAW`;
   }
 
-  #request( url ) {
-    return fetch( url, this.headers );
+  #request( url, options ) {
+    return fetch( url, options );
   }
 
   #lastRowIndex() {
@@ -126,11 +125,14 @@ class Spreadsheet {
   
   async append( data ) {
     const lastRow = await this.#lastRowIndex();
-    // if first write of the day, should start A or C
     const url = this.#valuesUrl( this.sheet, `A${lastRow+1}` );
-    // Data into array
-    // Send post?
-    // body..
-    performTask('Write google sheet', 1, data.toSheetFormat() );
+
+    const options = {
+      headers: this.auth,
+      method: 'PUT',
+      body: data.toSheetFormat,
+    };
+
+    this.#request( url, options );
   }
 }
