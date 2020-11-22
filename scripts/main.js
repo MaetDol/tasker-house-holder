@@ -27,13 +27,13 @@ if( store ) {
     type: store.type,
     memo
   });
-  writeSheet( data.toSheetFormat() );
 
+  writeSheet( data );
   notify({
     title: '메모 완료!',
     text: `${memo}에서 ${price}원을 결제하셨네요. 메모 해두겠습니다.`
   });
 } else {
   purchase.data.set('type', '기타');
-  notifyNewStore( purchase.data.toNotifyFormat() );
+  notifyNewStore( purchase.data );
 }
