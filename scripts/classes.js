@@ -93,12 +93,32 @@ class ShinhanCheckParser extends Parser {
 
 class Spreadsheet {
 
+  GET = 'GET';
+  UPDATE = 'UPDATE';
+
   constructor( sheet, auth ) {
     this.sheet = sheet;
     const a = auth.split(':');
     this.auth = { [a[0]]: a[1] };
     this.id = this.#id();
     this.baseUrl = this.#baseUrl();
+
+    this.options = {
+      'GET': {
+        queryString: 'majorDimension=ROW',
+        options: { 
+          headers: this.auth, 
+          method: 'GET',
+        }
+      },
+      'UPDATE': {
+        queryString: 'valueInputOption=RAW',
+        options: { 
+          headers: this.auth, 
+          method: 'PUT',
+        }
+      }
+    };
   }
 
   #id() {
@@ -110,8 +130,8 @@ class Spreadsheet {
     return `https://sheets.googleapis.com/v4/spreadsheets/${this.id}`;
   }
 
-  #valuesUrl( sheet, range ) {
-    return `${this.baseUrl}/values/${sheet}!${range}?valueInputOption=RAW`;
+  #valuesUrl( sheet, range, queryString ) {
+    return `${this.baseUrl}/values/${sheet}!${range}?${queryString}`;
   }
 
   #request( url, options ) {
@@ -119,20 +139,16 @@ class Spreadsheet {
   }
 
   #lastRowIndex() {
-    const url = this.#valuesUrl( this.sheet, 'C:C' );
-    return this.#request( url ).then( r => r.values.length );
+    const { queryString, options } = this.options[this.GET];
+    const url = this.#valuesUrl( this.sheet, 'C:C', queryString );
+    return this.#request( url, options ).then( r => r.values.length );
   }
   
   async append( data ) {
     const lastRow = await this.#lastRowIndex();
-    const url = this.#valuesUrl( this.sheet, `A${lastRow+1}` );
+    const { queryString, options } = this.options[this.UPDATE];
+    const url = this.#valuesUrl( this.sheet, `A${lastRow+1}`, queryString );
 
-    const options = {
-      headers: this.auth,
-      method: 'PUT',
-      body: data.toSheetFormat,
-    };
-
-    this.#request( url, options );
+    return this.#request( url, {...options, body: data.toSheetFormat()} );
   }
 }
