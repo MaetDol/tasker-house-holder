@@ -115,24 +115,38 @@ class Spreadsheet {
   }
 
   #request( url, options ) {
+  	flash('req')
+  setClip(JSON.stringify(options))
     return fetch( url, options );
   }
 
   #lastRowIndex() {
     const url = this.#valuesUrl( this.sheet, 'C:C' );
-    return this.#request( url ).then( r => r.values.length );
+    flash('lastRowIndex')
+    return this.#request( url, {headers:this.auth, method:'put'} )
+.then(r => {
+	j = JSON.stringify(r);
+    flash(j)
+    setClip(j)
+    return r;
+})
+.then( r => r.values.length ).catch(e=>flash('error'+e));
   }
   
   async append( data ) {
     const lastRow = await this.#lastRowIndex();
+    flash('lastrow')
     const url = this.#valuesUrl( this.sheet, `A${lastRow+1}` );
 
     const options = {
       headers: this.auth,
       method: 'PUT',
-      body: data.toSheetFormat,
+      body: data.toSheetFormat(),
     };
-
-    this.#request( url, options );
+let t = JSON.stringify({options, lastRow, url});
+    flash(t)
+    //setClip(t)
+    flash('done')
+return this.#request( url, options );
   }
 }
