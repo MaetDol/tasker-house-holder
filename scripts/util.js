@@ -13,13 +13,6 @@ function writeTo( path, str ) {
   writeFile( path, str, true );
 }
 
-/*
-  TODO: create 'Clear notify' Task
-*/
-function clearNotify( title ) {
-  performTask('Clear notify', 1, title );
-}
-
 function now() {
   const time = new Date( new Date() + GMT_PARALLAX );
   return {
@@ -48,6 +41,11 @@ function notify({ title, text }) {
   performTask('Notify', 1, title, text );
 }
 
-function notifyNewStore( str ) {
-  performTask('Notify new store', 1, str );
+function notifyNewStore( data ) {
+  performTask('Notify new store', 1, data.toNotifyFormat() );
 }
+
+function writeSheet( data ) {
+  performTask('Write google sheet', 1, data.toNotifyFormat() );
+}
+
