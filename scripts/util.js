@@ -38,14 +38,14 @@ function getStore( store ) {
   TODO: Implement notify and Task
 */
 function notify({ title, text }) {
-  performTask('Notify', 1, title, text );
+  performTask('🏡 Notify', 1, title, text );
 }
 
 function notifyNewStore( data ) {
-  performTask('Notify new store', 1, data.toNotifyFormat() );
+  performTask('🏡 Notify new store', 1, data.toNotifyFormat() );
 }
 
 function writeSheet( data ) {
-  performTask('Write google sheet', 1, data.toNotifyFormat() );
+  performTask('🏡 Write google sheet', 1, data.toNotifyFormat() );
 }
 
