@@ -2,40 +2,37 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="./style.css" rel="stylesheet">
+  <script src="./script.js"></script>
 </head>
-<body>
+<body data-scene-name="memo query">
   <form>
+    <h1>메모를 남겨주세요</h1>
     <label>
-      메모 내용
-      <input type="text" name="memo" placeholder="메모 내용을 적어주세요">
+      <span>메모 내용</span>
+      <input type="text" name="memo" placeholder="과자 사먹음!">
     </label>
 
     <div class="radio-group">
       <label>
         <input type="radio" name="type" value="기타" checked>
-        기타
+        <span>기타</span>
       </label>
       <label>
         <input type="radio" name="type" value="식비">
-        식비
+        <span>식비</span>
       </label>
       <label>
         <input type="radio" name="type" value="교통">
-        교통
+        <span>교통</span>
       </label>
       <label>
         <input type="radio" name="type" value="정기">
-        정기
+        <span>정기</span>
       </label>
     </div>
     <button type="button">완료</button>
   </form>
-
-  <script>
-    document.querySelectorAll('input').forEach( el => {
-      el.oninput = _=> setLocal( el.name, el.value );
-    });
-
-  </script>
 </body>
 </html>
