@@ -14,6 +14,8 @@ function init(){
     el.value = local('store');
   });
 
+  $('[autofocus]')[0].focus();
+
   $('input').forEach( el => {
     el.oninput = _=> setLocal( el.name, el.value );
   });
