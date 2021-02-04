@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="./style.css" rel="stylesheet">
-  <script src="./script.js"></script>
+  <script>
+    const path = `${global('UHAB_path')}/form`;
+    const script = document.createElement('script');
+    script.src = `${path}/script.js`;
+
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href = `${path}/style.css`;
+
+    document.head.append( script, style );
+  </script>
 </head>
 <body data-scene-name="memo query">
   <form>
