@@ -4,9 +4,13 @@ if( document.readyState === 'loading' ){
   init();
 }
 
-const $ = s => document.querySelectorAll(s);
+function $(s) {
+  return document.querySelectorAll(s);
+}
 
 function init(){
+  setLocal('type', '기타');
+
   $('input').forEach( el => {
     el.oninput = _=> setLocal( el.name, el.value );
   });
