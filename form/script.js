@@ -10,6 +10,7 @@ function $(s) {
 
 function init(){
   setLocal('type', '기타');
+  setLocal('memo', local('store'));
   $('[name="memo"], [name="store"]').forEach( el => {
     el.value = local('store');
   });
