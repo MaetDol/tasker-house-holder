@@ -33,7 +33,7 @@ label {
 }
 
 h1 {
-  letter-spacing: -1px;
+  letter-spacing: -2px;
   font-weight: normal;
   font-size: var(--Text-big);
   margin: 0 0 32px 0;
@@ -50,9 +50,8 @@ form {
   border-radius: 16px;
   padding: 40px;
   box-sizing: border-box;
-  top: 50%;
+  top: 32px;
   position: relative;
-  transform: translateY(-50%);
 }
 
 .radio-group {
