@@ -46,6 +46,6 @@ function notifyNewStore( data ) {
 }
 
 function writeSheet( data ) {
-  performTask('🏡 Write google sheet', 1, data.toNotifyFormat() );
+  performTask('🏡 Write google sheet', 1, data.toSheetFormat() );
 }
 
