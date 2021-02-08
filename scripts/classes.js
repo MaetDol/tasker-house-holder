@@ -105,7 +105,7 @@ class Spreadsheet {
 
     this.options = {
       'GET': {
-        queryString: 'majorDimension=ROW',
+        queryString: 'majorDimension=ROWS',
         options: { 
           headers: this.auth, 
           method: 'GET',
