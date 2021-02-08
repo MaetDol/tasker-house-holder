@@ -135,8 +135,6 @@ class Spreadsheet {
   }
 
   #request( url, options ) {
-  	flash('req')
-  setClip(JSON.stringify(options))
     return fetch( url, options );
   }
 
