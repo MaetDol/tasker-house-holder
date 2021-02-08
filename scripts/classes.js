@@ -123,7 +123,7 @@ class Spreadsheet {
 
   #id() {
     const url = global( GLOBAL_SHEET_LINK );
-    return url.match(/\/d\/(\w+)\/?/)?.[1];
+    return url.match(/\/d\/([\w-]+)\/?/)?.[1];
   }
 
   #baseUrl() {
