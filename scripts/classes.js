@@ -29,7 +29,7 @@ class Data {
   toSheetFormat() {
     const {price, type, memo} = this.data;
     let datePrefix = isFirstWriteOfDay() ? [[], now().date] : [''];
-    return JSON.stringify([...datePrefix, '', price, type, memo]);
+    return JSON.stringify({value: [[...datePrefix, '', price, type, memo]]});
   }
 
   toNotifyFormat() {
@@ -151,6 +151,6 @@ class Spreadsheet {
     const { queryString, options } = this.options[this.UPDATE];
     const url = this.#valuesUrl( this.sheet, `A${lastRow+1}`, queryString );
 
-    return this.#request( url, {...options, body: data.toSheetFormat()} );
+    return this.#request( url, {...options, body: data} );
   }
 }
