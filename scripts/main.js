@@ -12,7 +12,7 @@ writeTo( FILE_PATH, '' );
 const notifyInfo = global( GLOBAL_NOTIFY );
 if( notifyInfo ) {
   setGlobal( GLOBAL_NOTIFY, '' );
-  clearNotify( NOTIFY_TITLE );
+  clearNotify();
   const notifyData = Data.fromNotifyFormat( notifyInfo );
   writeSheet( notifyData );
 }

@@ -34,9 +34,10 @@ function getStore( store ) {
   return stores.find( s => s.get('store') === store );
 }
 
-/*
-  TODO: Implement notify and Task
-*/
+function clearNotify(){
+  performTask('🏡 Clear notify');
+}
+
 function notify({ title, text }) {
   performTask('🏡 Notify', 1, title, text );
 }
