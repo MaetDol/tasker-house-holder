@@ -1,3 +1,6 @@
+![flowchart image](https://github.com/MaetDol/tasker-house-holder/blob/master/flowchart.png)
+
+
 ### Ref
 
 - [Tasker JS document](https://tasker.joaoapps.com/userguide/en/javascript.html)
