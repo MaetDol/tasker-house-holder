@@ -9,6 +9,7 @@ function $(s) {
 }
 
 function init(){
+  setLocal('submit', false);
   setLocal('type', '기타');
   setLocal('memo', local('store'));
   $('[name="memo"], [name="store"]').forEach( el => {
@@ -22,5 +23,8 @@ function init(){
   });
 
   const sceneName = $('body')[0].dataset.sceneName;
-  $('button')[0].onclick = _ => destroyScene( sceneName );
+  $('button')[0].onclick = _=> {
+    setLocal('submit', true);
+    destroyScene( sceneName );
+  };
 }
