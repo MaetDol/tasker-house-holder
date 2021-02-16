@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-02-05T03:27:28.369Z" agent="5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36" etag="LIHJRSUXtDhlSeHsZTgV" version="14.2.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-16T03:40:47.854Z" agent="5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" etag="GMf6y-Vvexy_GWRRyBrS" version="14.3.2" type="github">
   <diagram id="1huoRkWd-wgOX6W86DVF" name="Page-1">
-    <mxGraphModel dx="644" dy="653" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -41,10 +41,10 @@
         <mxCell id="xq2FErhegeyca6-r9yFb-8" value="메시지 이벤트" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;labelBackgroundColor=none;fillColor=#ffe6cc;sketch=1;shadow=0;sketchStyle=rough;disableMultiStrokeFill=0;disableMultiStroke=1;simplification=0;strokeColor=#d79b00;fontFamily=KyoboHand;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fprojectnoonnu%2Fnoonfonts_20-04%401.0%2FKyoboHand.woff;" parent="1" vertex="1">
           <mxGeometry x="320" y="310" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="WAtK6OKdEQnZyJ43ct-P-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;disableMultiStroke=1;disableMultiStrokeFill=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;fontFamily=KyoboHand;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fprojectnoonnu%2Fnoonfonts_20-04%401.0%2FKyoboHand.woff;" edge="1" parent="1" source="xq2FErhegeyca6-r9yFb-10" target="WAtK6OKdEQnZyJ43ct-P-6">
+        <mxCell id="WAtK6OKdEQnZyJ43ct-P-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;disableMultiStroke=1;disableMultiStrokeFill=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;fontFamily=KyoboHand;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fprojectnoonnu%2Fnoonfonts_20-04%401.0%2FKyoboHand.woff;" parent="1" source="xq2FErhegeyca6-r9yFb-10" target="WAtK6OKdEQnZyJ43ct-P-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WAtK6OKdEQnZyJ43ct-P-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;disableMultiStroke=1;disableMultiStrokeFill=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;fontFamily=KyoboHand;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fprojectnoonnu%2Fnoonfonts_20-04%401.0%2FKyoboHand.woff;" edge="1" parent="1" source="xq2FErhegeyca6-r9yFb-10" target="xq2FErhegeyca6-r9yFb-33">
+        <mxCell id="WAtK6OKdEQnZyJ43ct-P-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;disableMultiStroke=1;disableMultiStrokeFill=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;fontFamily=KyoboHand;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fprojectnoonnu%2Fnoonfonts_20-04%401.0%2FKyoboHand.woff;" parent="1" source="xq2FErhegeyca6-r9yFb-10" target="xq2FErhegeyca6-r9yFb-33" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="xq2FErhegeyca6-r9yFb-10" value="구글 시트 작성" style="whiteSpace=wrap;html=1;rounded=0;fontSize=14;fontFamily=KyoboHand;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fprojectnoonnu%2Fnoonfonts_20-04%401.0%2FKyoboHand.woff;sketch=1;disableMultiStroke=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
@@ -108,7 +108,7 @@
         <mxCell id="meLbnnTgsmAjTQD1LtVd-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;sketch=1;disableMultiStroke=1;" parent="1" source="xq2FErhegeyca6-r9yFb-23" target="meLbnnTgsmAjTQD1LtVd-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="meLbnnTgsmAjTQD1LtVd-3" value="3. 가게 등록 후 기록" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="meLbnnTgsmAjTQD1LtVd-2" vertex="1" connectable="0">
+        <mxCell id="meLbnnTgsmAjTQD1LtVd-3" value="3. 가게 등록 후 기록" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=KyoboHand;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fprojectnoonnu%2Fnoonfonts_20-04%401.0%2FKyoboHand.woff;" parent="meLbnnTgsmAjTQD1LtVd-2" vertex="1" connectable="0">
           <mxGeometry x="0.5187" y="-3" relative="1" as="geometry">
             <mxPoint x="3" y="-11.5" as="offset" />
           </mxGeometry>
@@ -158,10 +158,10 @@
         <mxCell id="xq2FErhegeyca6-r9yFb-39" value="Add store info" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;fontFamily=KyoboHand;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fprojectnoonnu%2Fnoonfonts_20-04%401.0%2FKyoboHand.woff;" parent="1" vertex="1">
           <mxGeometry x="1440" y="690" width="100" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="WAtK6OKdEQnZyJ43ct-P-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;sketch=1;disableMultiStroke=1;disableMultiStrokeFill=0;" edge="1" parent="1" source="xq2FErhegeyca6-r9yFb-40" target="xq2FErhegeyca6-r9yFb-41">
+        <mxCell id="WAtK6OKdEQnZyJ43ct-P-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;sketch=1;disableMultiStroke=1;disableMultiStrokeFill=0;" parent="1" source="xq2FErhegeyca6-r9yFb-40" target="xq2FErhegeyca6-r9yFb-41" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WAtK6OKdEQnZyJ43ct-P-3" value="&lt;font face=&quot;KyoboHand&quot; data-font-src=&quot;https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff&quot;&gt;Data class&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="WAtK6OKdEQnZyJ43ct-P-1">
+        <mxCell id="WAtK6OKdEQnZyJ43ct-P-3" value="&lt;font face=&quot;KyoboHand&quot; data-font-src=&quot;https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff&quot;&gt;Data class&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="WAtK6OKdEQnZyJ43ct-P-1" vertex="1" connectable="0">
           <mxGeometry x="-0.1597" y="-2" relative="1" as="geometry">
             <mxPoint x="2" y="20.24" as="offset" />
           </mxGeometry>
@@ -190,7 +190,7 @@
         <mxCell id="meLbnnTgsmAjTQD1LtVd-7" value="Write with memo" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;fontFamily=KyoboHand;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fprojectnoonnu%2Fnoonfonts_20-04%401.0%2FKyoboHand.woff;" parent="1" vertex="1">
           <mxGeometry x="1100" y="690" width="120" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="WAtK6OKdEQnZyJ43ct-P-6" value="Auth" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;disableMultiStroke=1;strokeColor=#d79b00;fillColor=#ffe6cc;fontFamily=KyoboHand;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fprojectnoonnu%2Fnoonfonts_20-04%401.0%2FKyoboHand.woff;" vertex="1" parent="1">
+        <mxCell id="WAtK6OKdEQnZyJ43ct-P-6" value="Auth" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;disableMultiStroke=1;strokeColor=#d79b00;fillColor=#ffe6cc;fontFamily=KyoboHand;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fprojectnoonnu%2Fnoonfonts_20-04%401.0%2FKyoboHand.woff;" parent="1" vertex="1">
           <mxGeometry x="795" y="835" width="50" height="30" as="geometry" />
         </mxCell>
       </root>
