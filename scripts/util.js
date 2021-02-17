@@ -17,7 +17,8 @@ function now() {
   const time = new Date( new Date() + GMT_PARALLAX );
   return {
     time,
-    date: time.getUTCDate().toString(),
+    month: `${time.getUTCMonth() + 1}`,
+    date: `${time.getUTCDate()}`,
   }; 
 }
 
