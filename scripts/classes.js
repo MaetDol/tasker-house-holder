@@ -28,8 +28,15 @@ class Data {
 
   toSheetFormat() {
     const {price, type, memo} = this.data;
-    let datePrefix = isFirstWriteOfToday() ? [[], now().date] : [''];
-    return JSON.stringify({values: [[...datePrefix, '', price, type, memo]]});
+    let values = [
+      ['', '', price, type, memo],
+    ];
+
+    if( isFirstWriteOfToday() ) {
+      values[0][0] = now().date;
+      values.unshift([]);
+    }
+    return JSON.stringify({values});
   }
 
   toNotifyFormat() {
