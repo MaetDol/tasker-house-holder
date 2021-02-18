@@ -34,7 +34,7 @@ class Data {
 
     if( isFirstWriteOfToday() ) {
       values[0][0] = now().date;
-      values.unshift([]);
+      values.unshift(['']);
     }
     return JSON.stringify({values});
   }
