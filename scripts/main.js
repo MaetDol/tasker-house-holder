@@ -11,7 +11,6 @@ writeTo( FILE_PATH, '' );
 // 알림이 띄워진 상태면 시트에 그대로 작성
 const notifyInfo = global( GLOBAL_NOTIFY );
 if( notifyInfo ) {
-  clearNotify();
   const notifyData = Data.fromNotifyFormat( notifyInfo );
   writeSheet( notifyData );
 }
