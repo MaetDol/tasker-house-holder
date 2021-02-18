@@ -142,7 +142,14 @@ class Spreadsheet {
   }
 
   #request( url, options ) {
-    return fetch( url, options ).then( r => r.json() );
+    return fetch( url, options )
+      .then( r => r.json() )
+      .then( r => {
+        if( r.error ) {
+          throw r.error;
+        }
+        return r;
+      });
   }
 
   #lastRowIndex() {
