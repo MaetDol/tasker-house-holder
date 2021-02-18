@@ -14,7 +14,7 @@ function writeTo( path, str ) {
 }
 
 function now() {
-  const time = new Date( new Date() + GMT_PARALLAX );
+  const time = new Date( Date.now() + GMT_PARALLAX );
   return {
     time,
     month: `${time.getUTCMonth() + 1}`,
