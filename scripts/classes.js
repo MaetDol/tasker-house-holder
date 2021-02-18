@@ -28,7 +28,7 @@ class Data {
 
   toSheetFormat() {
     const {price, type, memo} = this.data;
-    let datePrefix = isFirstWriteOfDay() ? [[], now().date] : [''];
+    let datePrefix = isFirstWriteOfToday() ? [[], now().date] : [''];
     return JSON.stringify({values: [[...datePrefix, '', price, type, memo]]});
   }
 

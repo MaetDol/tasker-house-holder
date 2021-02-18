@@ -22,9 +22,9 @@ function now() {
   }; 
 }
 
-function isFirstWriteOfDay() {
+function isFirstWriteOfToday() {
   const lastWriteDate = global( GLOBAL_UPDATED_DATE );
-  return lastWriteDate === now().date;
+  return lastWriteDate !== now().date;
 }
 
 function getStore( store ) {
