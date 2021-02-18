@@ -1,7 +1,7 @@
 const FILE_DIR = 'Download/uhab/';
 const FILE_PATH = FILE_DIR + 'storeList';
 
-const GMT_PARALLAX = 9 * 60*60**1000;
+const GMT_PARALLAX = 9 * 60*60*1000;
 
 const GLOBAL_UPDATED_DATE = 'UHAB_last_date';
 const GLOBAL_NOTIFY = 'UHAB_last_notify';
