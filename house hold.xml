@@ -1,49 +1,5 @@
 <TaskerData sr="" dvi="1" tv="5.10.1">
 	<dmetric>1080.0,2088.0</dmetric>
-	<Profile sr="prof2" ve="2">
-		<cdate>1596785259064</cdate>
-		<edate>1596785519288</edate>
-		<flags>10</flags>
-		<id>2</id>
-		<limit>true</limit>
-		<mid0>4</mid0>
-		<Event sr="con0" ve="2">
-			<code>2080</code>
-			<pri>0</pri>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%bt_address
-Address
-Bluetooth device's MAC address&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%bt_battery_level
-Battery Level
-% of battery available, or not set if unavailable. (Android 9+)&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%bt_paired
-Paired
-true if there is at least one encrypted connection to this device, false otherwise&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%bt_class
-Class
-The device's bluetooth class ID&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%bt_class_name
-Class Name
-The device's bluetooth class name&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%bt_connected
-Connected
-true if the BT device is connected, false otherwise&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES6&gt;%bt_encrypted
-Encrypted
-true if there is at least one encrypted connection to this device, false otherwise&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES6&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES7&gt;%bt_major_class
-Major Class
-The device's major bluetooth class ID&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES7&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES8&gt;%bt_major_class_name
-Major Class Name
-The device's major bluetooth class name&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES8&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES9&gt;%bt_name
-Name
-Bluetooth device's name&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES9&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES10&gt;%bt_signal_strength
-Signal Strength
-Strength of the connection in dBm. Only available for connected and scanned devices.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES10&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES11&gt;%bt_type
-Type
-Could be 'classic', 'le', 'dual' or 'unknown'&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES11&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Str sr="arg1" ve="3"/>
-			<Str sr="arg2" ve="3"/>
-		</Event>
-	</Profile>
 	<Profile sr="prof29" ve="2">
 		<cdate>1572238506525</cdate>
 		<edate>1594080692273</edate>
@@ -60,51 +16,6 @@ Could be 'classic', 'le', 'dual' or 'unknown'&lt;/_array_net.dinglisch.android.t
 			<Str sr="arg3" ve="3"/>
 		</Event>
 	</Profile>
-	<Profile sr="prof32" ve="2">
-		<cdate>1595319113097</cdate>
-		<edate>1597724156059</edate>
-		<flags>10</flags>
-		<id>32</id>
-		<limit>true</limit>
-		<mid0>15</mid0>
-		<Event sr="con0" ve="2">
-			<code>4</code>
-		</Event>
-	</Profile>
-	<Profile sr="prof34" ve="2">
-		<cdate>1595319206665</cdate>
-		<edate>1597724156353</edate>
-		<flags>8</flags>
-		<id>34</id>
-		<limit>true</limit>
-		<mid0>33</mid0>
-		<Event sr="con0" ve="2">
-			<code>2</code>
-		</Event>
-	</Profile>
-	<Profile sr="prof9" ve="2">
-		<cdate>1571449961746</cdate>
-		<edate>1597723811917</edate>
-		<flags>2</flags>
-		<id>9</id>
-		<limit>true</limit>
-		<mid0>6</mid0>
-		<nme>Start music app when headset plugged</nme>
-		<State sr="con0" ve="2">
-			<code>30</code>
-			<Int sr="arg0" val="0"/>
-		</State>
-	</Profile>
-	<Project sr="proj0" ve="2">
-		<cdate>1569981370792</cdate>
-		<mdate>1597724082010</mdate>
-		<name>Base</name>
-		<pids>9,32,34,2</pids>
-		<tids>6,11,18,10,15,33,4</tids>
-		<Img sr="icon" ve="2">
-			<nme>mw_action_home</nme>
-		</Img>
-	</Project>
 	<Project sr="proj1" ve="2">
 		<cdate>1597723953522</cdate>
 		<mdate>1597724082010</mdate>
@@ -462,34 +373,6 @@ Could be 'classic', 'le', 'dual' or 'unknown'&lt;/_array_net.dinglisch.android.t
 			<Str sr="arg7" ve="3"/>
 		</PropertiesElement>
 	</Scene>
-	<Task sr="task10">
-		<cdate>1571719095379</cdate>
-		<edate>1571719100338</edate>
-		<id>10</id>
-		<nme>_______________________</nme>
-		<Action sr="act0" ve="7">
-			<code>171</code>
-			<Int sr="arg0" val="8000"/>
-			<Int sr="arg1" val="1000"/>
-			<Int sr="arg2" val="50"/>
-			<Int sr="arg3" val="3"/>
-		</Action>
-	</Task>
-	<Task sr="task11">
-		<cdate>1573536548863</cdate>
-		<edate>1596244181408</edate>
-		<id>11</id>
-		<nme>Record</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>455</code>
-			<Str sr="arg0" ve="3">Download/a.mp4</Str>
-			<Int sr="arg1" val="4"/>
-			<Int sr="arg2" val="500"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-		</Action>
-	</Task>
 	<Task sr="task12">
 		<cdate>1573792671519</cdate>
 		<edate>1573792749727</edate>
@@ -522,28 +405,6 @@ Could be 'classic', 'le', 'dual' or 'unknown'&lt;/_array_net.dinglisch.android.t
 		</Action>
 		<Action sr="act2" ve="7">
 			<code>38</code>
-		</Action>
-	</Task>
-	<Task sr="task15">
-		<cdate>1595317476347</cdate>
-		<edate>1596785362534</edate>
-		<id>15</id>
-		<nme>Test</nme>
-		<pri>6</pri>
-		<Action sr="act0" ve="7">
-			<code>523</code>
-			<Str sr="arg0" ve="3">Idle</Str>
-			<Str sr="arg1" ve="3">%CNUM %CONUM</Str>
-			<Str sr="arg10" ve="3"/>
-			<Str sr="arg11" ve="3">category;</Str>
-			<Img sr="arg2" ve="2"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-			<Str sr="arg9" ve="3"/>
 		</Action>
 	</Task>
 	<Task sr="task17">
@@ -605,19 +466,6 @@ Could be 'classic', 'le', 'dual' or 'unknown'&lt;/_array_net.dinglisch.android.t
 			<Str sr="arg7" ve="3"/>
 			<Int sr="arg8" val="0"/>
 			<Int sr="arg9" val="0"/>
-		</Action>
-	</Task>
-	<Task sr="task18">
-		<cdate>1571719095379</cdate>
-		<edate>1571719100338</edate>
-		<id>18</id>
-		<nme>______________________</nme>
-		<Action sr="act0" ve="7">
-			<code>171</code>
-			<Int sr="arg0" val="8000"/>
-			<Int sr="arg1" val="1000"/>
-			<Int sr="arg2" val="50"/>
-			<Int sr="arg3" val="3"/>
 		</Action>
 	</Task>
 	<Task sr="task21">
@@ -1008,51 +856,6 @@ Could be 'classic', 'le', 'dual' or 'unknown'&lt;/_array_net.dinglisch.android.t
 			<Int sr="arg5" val="3"/>
 		</Action>
 	</Task>
-	<Task sr="task33">
-		<cdate>1595319168142</cdate>
-		<edate>1595542050893</edate>
-		<id>33</id>
-		<nme>Test2</nme>
-		<pri>6</pri>
-		<Action sr="act0" ve="7">
-			<code>523</code>
-			<Str sr="arg0" ve="3">Off hook</Str>
-			<Str sr="arg1" ve="3">%CNUM %CONUM</Str>
-			<Str sr="arg10" ve="3"/>
-			<Str sr="arg11" ve="3">nah</Str>
-			<Img sr="arg2" ve="2"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-			<Str sr="arg9" ve="3"/>
-		</Action>
-	</Task>
-	<Task sr="task4">
-		<cdate>1596785299771</cdate>
-		<edate>1596785439900</edate>
-		<id>4</id>
-		<nme>BTTest</nme>
-		<pri>6</pri>
-		<Action sr="act0" ve="7">
-			<code>523</code>
-			<Str sr="arg0" ve="3">%bt_class %bt_name</Str>
-			<Str sr="arg1" ve="3">%bt_class_name
-%bt_connected</Str>
-			<Str sr="arg10" ve="3"/>
-			<Str sr="arg11" ve="3">BT</Str>
-			<Img sr="arg2" ve="2"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-			<Str sr="arg9" ve="3"/>
-		</Action>
-	</Task>
 	<Task sr="task5">
 		<cdate>1570441132713</cdate>
 		<edate>1572239652123</edate>
@@ -1113,23 +916,6 @@ Could be 'classic', 'le', 'dual' or 'unknown'&lt;/_array_net.dinglisch.android.t
 		</Action>
 		<Action sr="act7" ve="7">
 			<code>38</code>
-		</Action>
-	</Task>
-	<Task sr="task6">
-		<cdate>1571449866570</cdate>
-		<edate>1594079936993</edate>
-		<id>6</id>
-		<nme>Start musicolet</nme>
-		<Action sr="act0" ve="7">
-			<code>20</code>
-			<App sr="arg0">
-				<appClass>in.krosbits.musicolet.MusicActivity</appClass>
-				<appPkg>in.krosbits.musicolet</appPkg>
-				<label>Musicolet</label>
-			</App>
-			<Str sr="arg1" ve="3"/>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
 		</Action>
 	</Task>
 	<Task sr="task7">
