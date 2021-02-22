@@ -36,7 +36,7 @@ function getStore( store ) {
 }
 
 function clearNotify(){
-  performTask('🏡 Clear notify');
+  performTask('🏡 Clear notify', 10);
 }
 
 function notify({ title, text }) {
@@ -48,6 +48,6 @@ function notifyNewStore( data ) {
 }
 
 function writeSheet( data ) {
-  performTask('🏡 Write google sheet', 1, data.toSheetFormat() );
+  performTask('🏡 Write google sheet', 9, data.toSheetFormat() );
 }
 
