@@ -1,10 +1,10 @@
 <TaskerData sr="" dvi="1" tv="5.11.14">
 	<dmetric>1080.0,2088.0</dmetric>
-	<Profile sr="prof41" ve="2">
-		<cdate>1572238506525</cdate>
-		<edate>1613638663685</edate>
-		<id>41</id>
-		<mid0>8</mid0>
+	<Profile sr="prof46" ve="2">
+		<cdate>1614003748605</cdate>
+		<edate>1614140854173</edate>
+		<id>46</id>
+		<mid0>42</mid0>
 		<nme>🏡 Detect message</nme>
 		<Event sr="con0" ve="2">
 			<code>7</code>
@@ -18,9 +18,9 @@
 	<Project sr="proj0" ve="2">
 		<cdate>1613997679523</cdate>
 		<name>🏡 Holder</name>
-		<pids>41</pids>
-		<scenes>🏡 memo query,🏡 add store form</scenes>
-		<tids>13,16,8,20,42,19,45,39</tids>
+		<pids>46</pids>
+		<scenes>🏡 add store form,🏡 memo query</scenes>
+		<tids>42,38,44,45,43,37,41,40</tids>
 	</Project>
 	<Scene sr="scene🏡 add store form">
 		<cdate>1571448665846</cdate>
@@ -109,78 +109,10 @@
 			<Str sr="arg7" ve="3"/>
 		</PropertiesElement>
 	</Scene>
-	<Task sr="task13">
-		<cdate>1571717238107</cdate>
-		<edate>1613637347653</edate>
-		<id>13</id>
-		<nme>🏡 Add store info</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>512</code>
-			<Int sr="arg0" val="1"/>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>129</code>
-			<label>par1 to local</label>
-			<Str sr="arg0" ve="3">Data.fromNotifyFormat( local('par1') )
-    .toLocal();</Str>
-			<Str sr="arg1" ve="3">/storage/emulated/0/Download/tasker-house-holder/scripts/constant.js
-/storage/emulated/0/Download/tasker-house-holder/scripts/classes.js
-/storage/emulated/0/Download/tasker-house-holder/scripts/util.js</Str>
-			<Int sr="arg2" val="1"/>
-			<Int sr="arg3" val="45"/>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>47</code>
-			<Str sr="arg0" ve="3">🏡 add store form</Str>
-			<Int sr="arg1" val="3"/>
-			<Int sr="arg2" val="100"/>
-			<Int sr="arg3" val="100"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>37</code>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%submit</lhs>
-					<op>0</op>
-					<rhs>true</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>129</code>
-			<label>Write store info to file</label>
-			<Str sr="arg0" ve="3">writeTo( 
-    FILE_PATH, 
-    `${type};${store};${memo}\n`
-);</Str>
-			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
-			<Int sr="arg2" val="1"/>
-			<Int sr="arg3" val="45"/>
-		</Action>
-		<Action sr="act5" ve="7">
-			<code>129</code>
-			<label>Append to sheet</label>
-			<Str sr="arg0" ve="3">const data = new Data({
-    price, type, memo
-});
-writeSheet( data );</Str>
-			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
-			<Int sr="arg2" val="1"/>
-			<Int sr="arg3" val="45"/>
-		</Action>
-		<Action sr="act6" ve="7">
-			<code>38</code>
-		</Action>
-	</Task>
-	<Task sr="task16">
+	<Task sr="task38">
 		<cdate>1571908869714</cdate>
-		<edate>1613973256152</edate>
-		<id>16</id>
+		<edate>1614141503844</edate>
+		<id>38</id>
 		<nme>🏡 Notify new store</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
@@ -272,10 +204,10 @@ var sheet_format = data.toSheetFormat();</Str>
 			</ListElementItem>
 		</Action>
 	</Task>
-	<Task sr="task19">
+	<Task sr="task39">
 		<cdate>1605858105433</cdate>
-		<edate>1613993184809</edate>
-		<id>19</id>
+		<edate>1614141449992</edate>
+		<id>39</id>
 		<nme>🏡 Notify</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
@@ -296,10 +228,10 @@ var sheet_format = data.toSheetFormat();</Str>
 			<Str sr="arg9" ve="3"/>
 		</Action>
 	</Task>
-	<Task sr="task20">
+	<Task sr="task40">
 		<cdate>1605072877171</cdate>
-		<edate>1613997641999</edate>
-		<id>20</id>
+		<edate>1614003790841</edate>
+		<id>40</id>
 		<nme>🏡 Write google sheet</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
@@ -353,10 +285,10 @@ Pay info: ${local('par1')}`,
 			<Int sr="arg3" val="45"/>
 		</Action>
 	</Task>
-	<Task sr="task39">
+	<Task sr="task41">
 		<cdate>1610094520564</cdate>
 		<edate>1613997775949</edate>
-		<id>39</id>
+		<id>41</id>
 		<nme>🏡 Initial global var</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
@@ -429,9 +361,24 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 		</Action>
 	</Task>
 	<Task sr="task42">
+		<cdate>1610074096426</cdate>
+		<edate>1614210873660</edate>
+		<id>42</id>
+		<nme>🏡 Handler</nme>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>131</code>
+			<label>Main flow</label>
+			<Str sr="arg0" ve="3">%UHAB_JS_path/main.js</Str>
+			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="45"/>
+		</Action>
+	</Task>
+	<Task sr="task43">
 		<cdate>1605858105433</cdate>
 		<edate>1613962250230</edate>
-		<id>42</id>
+		<id>43</id>
 		<nme>🏡 Clear notify</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
@@ -447,12 +394,82 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 			<Int sr="arg1" val="0"/>
 		</Action>
 	</Task>
+	<Task sr="task44">
+		<cdate>1571717238107</cdate>
+		<edate>1614141498302</edate>
+		<id>44</id>
+		<nme>🏡 Add store info</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>512</code>
+			<Int sr="arg0" val="1"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>129</code>
+			<label>par1 to local</label>
+			<Str sr="arg0" ve="3">Data.fromNotifyFormat( local('par1') )
+    .toLocal();</Str>
+			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="45"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>47</code>
+			<Str sr="arg0" ve="3">🏡 add store form</Str>
+			<Int sr="arg1" val="3"/>
+			<Int sr="arg2" val="100"/>
+			<Int sr="arg3" val="100"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>49</code>
+			<Str sr="arg0" ve="3">🏡 add store form</Str>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%submit</lhs>
+					<op>0</op>
+					<rhs>true</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>129</code>
+			<label>Write store info to file</label>
+			<Str sr="arg0" ve="3">writeTo( 
+    FILE_PATH, 
+    `${type};${store};${memo}\n`
+);</Str>
+			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="45"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>129</code>
+			<label>Append to sheet</label>
+			<Str sr="arg0" ve="3">const data = new Data({
+    price, type, memo
+});
+writeSheet( data );</Str>
+			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="45"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>38</code>
+		</Action>
+	</Task>
 	<Task sr="task45">
 		<cdate>1612242455743</cdate>
-		<edate>1613973273461</edate>
+		<edate>1614141494258</edate>
 		<id>45</id>
 		<nme>🏡 Write with memo</nme>
-		<pri>100</pri>
+		<pri>7</pri>
 		<Action sr="act0" ve="7">
 			<code>512</code>
 			<Int sr="arg0" val="1"/>
@@ -477,6 +494,10 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 			<Int sr="arg7" val="0"/>
 		</Action>
 		<Action sr="act3" ve="7">
+			<code>49</code>
+			<Str sr="arg0" ve="3">🏡 memo query</Str>
+		</Action>
+		<Action sr="act4" ve="7">
 			<code>37</code>
 			<ConditionList sr="if">
 				<Condition sr="c0" ve="3">
@@ -486,7 +507,7 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 				</Condition>
 			</ConditionList>
 		</Action>
-		<Action sr="act4" ve="7">
+		<Action sr="act5" ve="7">
 			<code>129</code>
 			<label>Append to sheet</label>
 			<Str sr="arg0" ve="3">const data = new Data({
@@ -497,23 +518,12 @@ writeSheet( data );</Str>
 			<Int sr="arg2" val="1"/>
 			<Int sr="arg3" val="45"/>
 		</Action>
-		<Action sr="act5" ve="7">
+		<Action sr="act6" ve="7">
 			<code>38</code>
 		</Action>
-	</Task>
-	<Task sr="task8">
-		<cdate>1610074096426</cdate>
-		<edate>1613973253524</edate>
-		<id>8</id>
-		<nme>🏡 Handler</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>131</code>
-			<label>Main flow</label>
-			<Str sr="arg0" ve="3">%UHAB_JS_path/main.js</Str>
-			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
-			<Int sr="arg2" val="1"/>
-			<Int sr="arg3" val="45"/>
-		</Action>
+		<Img sr="icn" ve="2">
+			<cls>com.google.android.apps.docs.app.NewMainProxyActivity</cls>
+			<pkg>com.google.android.apps.docs.editors.sheets</pkg>
+		</Img>
 	</Task>
 </TaskerData>
