@@ -32,7 +32,17 @@ function getStore( store ) {
     .split('\n')
     .map( r => r.split(';'))
     .map(([type, store, memo]) => new Data({type, store, memo}));
-  return stores.find( s => s.get('store') === store );
+
+  let result = {match:Infinity, data:null};
+  for( const data of stores ) {
+    const storeName = data.get('store');
+    if( storeName.indexOf(store) === -1 ) continue;
+
+    const match = storeName.length - store.length;
+    result = match <= result.match ? {match, data} : result;
+  }
+
+  return result.data;
 }
 
 function clearNotify(){
