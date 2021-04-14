@@ -6,7 +6,7 @@ function main( sms ) {
   flushPreviousNotification();
 
   const storeData = getStore( purchase.data.get('store') );
-  if( storeData ) writePurchaseInfo( storeData );
+  if( storeData ) writePurchaseInfo( storeData, purchase );
   else {
     purchase.data.set('type', '기타');
     notifyNewStore( purchase.data );
@@ -26,7 +26,7 @@ function flushPreviousNotification() {
   }
 }
 
-function writePurchaseInfo( data ) {
+function writePurchaseInfo( storeData, purchase ) {
   const data = new Data({ 
     price: purchase.data.get('price'),
     type: storeData.get('type'),
