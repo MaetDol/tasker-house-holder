@@ -1,4 +1,8 @@
-class Purchase {
+import { DATA_SEPARATOR } from './constant.js';
+import Native from './native.js';
+const { global } = Native;
+
+export class Purchase {
   constructor( msg, parserCls ) {
     this.parser = new parserCls( msg );
     this._isNot = false;
@@ -10,7 +14,7 @@ class Purchase {
   get isNot() { return this._isNot; }
 }
 
-class Data {
+export class Data {
   constructor({
     price= '',
     type= '',
@@ -56,7 +60,7 @@ class Data {
   }
 }
 
-class Parser {
+export class Parser {
   YEN = 11;
   USD = 1150;
   constructor( msg ) {
@@ -75,7 +79,7 @@ class Parser {
   get failed() { return this._failed; }
 }
 
-class ShinhanCheckParser extends Parser {
+export class ShinhanCheckParser extends Parser {
 
   parse( msg ) {
     const isPurchase = msg.match(/신한체크(해외)?승인/);
@@ -98,7 +102,7 @@ class ShinhanCheckParser extends Parser {
 
 }
 
-class Spreadsheet {
+export class Spreadsheet {
 
   GET = 'GET';
   UPDATE = 'UPDATE';

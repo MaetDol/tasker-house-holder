@@ -1,19 +1,29 @@
+import { Data } from './classes.js';
+import Native from './native.js';
+const {
+  listFiles,
+  createDir,
+  writeFile,
+  global,
+  readFile,
+  performTask,
+} = Native;
 
-function isDirExists( path ) {
+export function isDirExists( path ) {
   try { listFiles( path ); } 
   catch(_) { return false; }
   return true;
 }
 
-function createDirectory( path ) {
+export function createDirectory( path ) {
   createDir( path, true );
 }
 
-function writeTo( path, str ) {
+export function writeTo( path, str ) {
   writeFile( path, str, true );
 }
 
-function now() {
+export function now() {
   const time = new Date( Date.now() + GMT_PARALLAX );
   return {
     time,
@@ -22,12 +32,12 @@ function now() {
   }; 
 }
 
-function isFirstWriteOfToday() {
+export function isFirstWriteOfToday() {
   const lastWriteDate = global( GLOBAL_UPDATED_DATE );
   return lastWriteDate !== now().date;
 }
 
-function getStore( store ) {
+export function getStore( store ) {
   const stores = readFile( FILE_PATH )
     .split('\n')
     .map( r => r.split(';'))
@@ -35,19 +45,19 @@ function getStore( store ) {
   return stores.find( s => s.get('store') === store );
 }
 
-function clearNotify(){
+export function clearNotify(){
   performTask('🏡 Clear notify', 10);
 }
 
-function notify({ title, text }) {
+export function notify({ title, text }) {
   performTask('🏡 Notify', 1, title, text );
 }
 
-function notifyNewStore( data ) {
+export function notifyNewStore( data ) {
   performTask('🏡 Notify new store', 1, data.toNotifyFormat() );
 }
 
-function writeSheet( data ) {
+export function writeSheet( data ) {
   performTask('🏡 Write google sheet', 9, data.toSheetFormat() );
 }
 
