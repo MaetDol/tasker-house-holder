@@ -1,0 +1,26 @@
+{
+  "name": "tasker-house-holder",
+  "version": "1.0.0",
+  "description": "Tasker 의 Task와 HTML form, JS로 만든 가계부입니다. \\ 기본적인 흐름은 아래의 flowchart와 같이 이루어집니다. \\ ![flowchart image](https://github.com/MaetDol/tasker-house-holder/blob/master/flowchart.png)",
+  "private": true,
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx rollup scripts/main.js -o dist/bundle.js --no-treeshake"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaetDol/tasker-house-holder.git"
+  },
+  "author": "MaetDol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaetDol/tasker-house-holder/issues"
+  },
+  "homepage": "https://github.com/MaetDol/tasker-house-holder#readme",
+  "devDependencies": {
+    "rollup": "^2.45.2"
+  }
+}
