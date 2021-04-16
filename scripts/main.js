@@ -12,7 +12,7 @@ import {
 import Native from './native.js';
 const { exit, global } = Native;
 
-function main( sms ) {
+export default function main( sms ) {
   const purchase = new Purchase( sms, ShinhanCheckParser );
   if( purchase.isNot ) exit();
 
@@ -27,12 +27,12 @@ function main( sms ) {
   }
 }
 
-function createStoreFile() {
+export function createStoreFile() {
   if( !isDirExists( FILE_DIR ) ) createDirectory( FILE_DIR );
   writeTo( FILE_PATH, '' );
 }
 
-function flushPreviousNotification() {
+export function flushPreviousNotification() {
   const notifyInfo = global( GLOBAL_NOTIFY );
   if( notifyInfo ) {
     const notifyData = Data.fromNotifyFormat( notifyInfo );
@@ -40,7 +40,7 @@ function flushPreviousNotification() {
   }
 }
 
-function writePurchaseInfo( storeData, purchase ) {
+export function writePurchaseInfo( storeData, purchase ) {
   const data = new Data({ 
     price: purchase.data.get('price'),
     type: storeData.get('type'),
