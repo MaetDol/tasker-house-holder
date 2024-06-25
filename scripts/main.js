@@ -1,5 +1,5 @@
 import { GLOBAL_NOTIFY } from './constant.js';
-import { Purchase, Data, ShinhanCheckParser } from './classes.js';
+import { Purchase, Data, ShinhanCheckParser, ShinhanSOLPay } from './classes.js';
 import { 
   getStore, 
   notifyNewStore,
@@ -12,8 +12,8 @@ import {
 import Native from './native.js';
 const { exit, global } = Native;
 
-export default function main( sms ) {
-  const purchase = new Purchase( sms, ShinhanCheckParser );
+export default function main( sms, parser = ShinhanSOLPay ) {
+  const purchase = new Purchase( sms, parser );
   if( purchase.isNot ) exit();
 
   createStoreFile();
