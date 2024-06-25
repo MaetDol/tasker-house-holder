@@ -11,10 +11,14 @@ const DATA_SEPARATOR = '™';
 const ROW_SEPARATOR = '¶™¶';
 
 function createPlaceholder( name ) {
-	return globalThis[name] || function() {
-		console.log(`Call native function ${name}`);
-		return name;
-	}
+	if (globalThis[name]) {
+    return globalThis[name].bind(globalThis);
+  }
+
+  return function () {
+    console.log(`Call native function ${name}`);
+    return name;
+  };
 }
 
 const Types = [
