@@ -1,3 +1,7 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
 const FILE_DIR$1 = 'Download/uhab/';
 const FILE_PATH$1 = FILE_DIR$1 + 'storeList';
 
@@ -331,4 +335,7 @@ function writePurchaseInfo( storeData, purchase ) {
   writeSheet( data );
 }
 
-export { createStoreFile, main as default, flushPreviousNotification, writePurchaseInfo };
+exports.createStoreFile = createStoreFile;
+exports.default = main;
+exports.flushPreviousNotification = flushPreviousNotification;
+exports.writePurchaseInfo = writePurchaseInfo;
