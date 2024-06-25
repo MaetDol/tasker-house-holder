@@ -133,6 +133,30 @@ class ShinhanCheckParser extends Parser {
 
 }
 
+class ShinhanSOLPay extends Parser {
+  parse(msg) {
+    const isPurchase = /\[신한카드\(\d+\)승인\]/.test(msg);
+    if (!isPurchase) {
+      this._failed = true;
+      return;
+    }
+
+    // - 승인일시: 06.25 13:30
+    const TIME_REGEXP = /- 승인일시: (\d\d)\/(\d\d) \d\d:\d\d/;
+    const STORE_REGEXP = /- 가맹점명: (.+)/;
+    // 해외결제는 어떻게?
+    const PRICE_REGEXP = /- 승인금액: ([\d,]+)/;
+
+    const price = msg.match(PRICE_REGEXP)[1];
+    const store = msg.match(STORE_REGEXP)[1];
+
+    return new Data({
+      price: this.exchangeRate["원"](price),
+      store: store,
+    });
+  }
+}
+
 class Spreadsheet {
 
   GET = 'GET';
@@ -265,8 +289,8 @@ function writeSheet( data ) {
 
 const { exit, global } = Native;
 
-function main( sms ) {
-  const purchase = new Purchase( sms, ShinhanCheckParser );
+function main( sms, parser = ShinhanSOLPay ) {
+  const purchase = new Purchase( sms, parser );
   if( purchase.isNot ) exit();
 
   createStoreFile();
@@ -306,3 +330,5 @@ function writePurchaseInfo( storeData, purchase ) {
   });
   writeSheet( data );
 }
+
+export { createStoreFile, main as default, flushPreviousNotification, writePurchaseInfo };
