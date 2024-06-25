@@ -31,8 +31,6 @@ var Native = Types.reduce((Native, name) => {
 	return Native;
 }, {});
 
-const { global: global$2 } = Native;
-
 class Purchase {
   constructor( msg, parserCls ) {
     this.parser = new parserCls( msg );
@@ -188,7 +186,7 @@ class Spreadsheet {
   }
 
   #id() {
-    const url = global$2( GLOBAL_SHEET_LINK );
+    const url = Native.global(GLOBAL_SHEET_LINK);
     return url.match(/\/d\/([\w-]+)\/?/)?.[1];
   }
 
@@ -226,27 +224,21 @@ class Spreadsheet {
   }
 }
 
-const {
-  listFiles,
-  createDir,
-  writeFile,
-  global: global$1,
-  readFile,
-  performTask,
-} = Native;
-
 function isDirExists( path ) {
-  try { listFiles( path ); } 
-  catch(_) { return false; }
+  try {
+    Native.listFiles(path);
+  } catch (_) {
+    return false;
+  }
   return true;
 }
 
 function createDirectory( path ) {
-  createDir( path, true );
+  Native.createDir(path, true);
 }
 
 function writeTo( path, str ) {
-  writeFile( path, str, true );
+  Native.writeFile(path, str, true);
 }
 
 function now$1() {
@@ -259,39 +251,37 @@ function now$1() {
 }
 
 function isFirstWriteOfToday$1() {
-  const lastWriteDate = global$1( GLOBAL_UPDATED_DATE );
+  const lastWriteDate = Native.global(GLOBAL_UPDATED_DATE);
   return lastWriteDate !== now$1().date;
 }
 
 function getStore( store ) {
-  const stores = readFile( FILE_PATH )
-    .split('\n')
-    .map( r => r.split(';'))
-    .map(([type, store, memo]) => new Data({type, store, memo}));
+  const stores = Native.readFile(FILE_PATH)
+    .split("\n")
+    .map((r) => r.split(";"))
+    .map(([type, store, memo]) => new Data({ type, store, memo }));
   return stores.find( s => s.get('store') === store );
 }
 
 function clearNotify(){
-  performTask('🏡 Clear notify', 10);
+  Native.performTask("🏡 Clear notify", 10);
 }
 
 function notify({ title, text }) {
-  performTask('🏡 Notify', 1, title, text );
+  Native.performTask("🏡 Notify", 1, title, text);
 }
 
 function notifyNewStore( data ) {
-  performTask('🏡 Notify new store', 1, data.toNotifyFormat() );
+  Native.performTask("🏡 Notify new store", 1, data.toNotifyFormat());
 }
 
 function writeSheet( data ) {
-  performTask('🏡 Write google sheet', 9, data.toSheetFormat() );
+  Native.performTask("🏡 Write google sheet", 9, data.toSheetFormat());
 }
 
-const { exit, global } = Native;
-
- function main(sms, parser = ShinhanSOLPay) {
+function main(sms, parser = ShinhanSOLPay) {
    const purchase = new Purchase(sms, parser);
-   if (purchase.isNot) exit();
+   if (purchase.isNot) Native.exit();
 
    createStoreFile();
    flushPreviousNotification();
@@ -310,7 +300,7 @@ const { exit, global } = Native;
  }
 
  function flushPreviousNotification() {
-   const notifyInfo = global(GLOBAL_NOTIFY);
+   const notifyInfo = Native.global(GLOBAL_NOTIFY);
    if (notifyInfo) {
      const notifyData = Data.fromNotifyFormat(notifyInfo);
      writeSheet(notifyData);

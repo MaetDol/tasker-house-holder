@@ -1,6 +1,5 @@
 import { DATA_SEPARATOR } from './constant.js';
-import Native from './native.js';
-const { global } = Native;
+import Native from "./native.js";
 
 export class Purchase {
   constructor( msg, parserCls ) {
@@ -157,7 +156,7 @@ export class Spreadsheet {
   }
 
   #id() {
-    const url = global( GLOBAL_SHEET_LINK );
+    const url = Native.global(GLOBAL_SHEET_LINK);
     return url.match(/\/d\/([\w-]+)\/?/)?.[1];
   }
 

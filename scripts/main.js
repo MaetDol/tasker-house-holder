@@ -9,12 +9,11 @@ import {
   writeSheet,
   notify,
 } from './util.js';
-import Native from './native.js';
-const { exit, global } = Native;
+import Native from "./native.js";
 
  function main(sms, parser = ShinhanSOLPay) {
    const purchase = new Purchase(sms, parser);
-   if (purchase.isNot) exit();
+   if (purchase.isNot) Native.exit();
 
    createStoreFile();
    flushPreviousNotification();
@@ -33,7 +32,7 @@ const { exit, global } = Native;
  }
 
  function flushPreviousNotification() {
-   const notifyInfo = global(GLOBAL_NOTIFY);
+   const notifyInfo = Native.global(GLOBAL_NOTIFY);
    if (notifyInfo) {
      const notifyData = Data.fromNotifyFormat(notifyInfo);
      writeSheet(notifyData);
