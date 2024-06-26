@@ -1,8 +1,20 @@
 
 function createPlaceholder( name ) {
-	if (globalThis[name]) {
-    return globalThis[name].bind(globalThis);
-  }
+	if (typeof globalThis !== "undefined") {
+		if (typeof globalThis[name] === "function") {
+			return globalThis[name].bind(globalThis);
+		}
+	}
+
+	if (typeof window !== "undefined") {
+		if (typeof window[name] === "function") {
+			return window[name].bind(window);
+		}
+	}
+	
+	if (typeof eval(name) === "function") {
+		return eval(name);
+	}
 
   return function () {
     console.log(`Call native function ${name}`);
