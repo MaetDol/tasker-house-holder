@@ -16,7 +16,8 @@ const Types = [
 	'createDir',
 	'writeFile',
 	'readFile',
-	'performTask'
+	'performTask',
+	'exit',
 ];
 
 export default Types.reduce((Native, name) => {

@@ -1,4 +1,4 @@
-import { GLOBAL_NOTIFY } from './constant.js';
+import { FILE_DIR, FILE_PATH, GLOBAL_NOTIFY } from './constant.js';
 import { Purchase, Data, ShinhanCheckParser, ShinhanSOLPay } from './classes.js';
 import { 
   getStore, 
