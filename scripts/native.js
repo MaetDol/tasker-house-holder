@@ -12,9 +12,11 @@ function createPlaceholder( name ) {
 		}
 	}
 	
+	try {
 	if (typeof eval(name) === "function") {
 		return eval(name);
 	}
+} catch(e) {}
 
   return function () {
     console.log(`Call native function ${name}`);
