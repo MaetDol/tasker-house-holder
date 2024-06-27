@@ -19,20 +19,6 @@ export function writeTo( path, str ) {
   Native.writeFile(path, str, true);
 }
 
-export function now() {
-  const time = new Date( Date.now() + GMT_PARALLAX );
-  return {
-    time,
-    month: `${time.getUTCMonth() + 1}`,
-    date: `${time.getUTCDate()}`,
-  }; 
-}
-
-export function isFirstWriteOfToday() {
-  const lastWriteDate = Native.global(GLOBAL_UPDATED_DATE);
-  return lastWriteDate !== now().date;
-}
-
 export function getStore( store ) {
   const stores = Native.readFile(FILE_PATH)
     .split("\n")
