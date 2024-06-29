@@ -50,7 +50,10 @@ export function writeSheet( data ) {
 }
 
 export function log(msg) {
-  const logName = `${FILE_DIR}/log_${now().year}${now().month}${now().date}`;
+  const logName = `${FILE_DIR}/log_${now().year}${now().month.padStart(
+    2,
+    "0"
+  )}${now().date.padStart(2, "0")}`;
   const timestamp = new Date(Date.now() + GMT_PARALLAX)
     .toISOString()
     .slice(0, -5);
