@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx rollup scripts/main.js -o dist/bundle.js --no-treeshake --format=es"
+    "build": "npx rollup --config --no-treeshake --format=es"
   },
   "repository": {
     "type": "git",
