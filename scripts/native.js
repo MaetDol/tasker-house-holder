@@ -24,17 +24,20 @@ function createPlaceholder( name ) {
   };
 }
 
-const Types = [
-	'global',
-	'listFiles',
-	'createDir',
-	'writeFile',
-	'readFile',
-	'performTask',
-	'exit',
-];
+const Types = /** @type {const} */ ([
+  "global",
+  "listFiles",
+  "createDir",
+  "writeFile",
+  "readFile",
+  "performTask",
+  "exit",
+]);
 
-export default Types.reduce((Native, name) => {
-	Native[name] = createPlaceholder( name );
-	return Native;
+/** @type {Record<typeof Types[number], Function>} */
+const Native = Types.reduce((Native, name) => {
+  Native[name] = createPlaceholder(name);
+  return Native;
 }, {});
+
+export default Native;
