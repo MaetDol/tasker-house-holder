@@ -16,7 +16,7 @@ function createPlaceholder( name ) {
 	if (typeof eval(name) === "function") {
 		return eval(name);
 	}
-} catch(e) {}
+  } catch (e) {}
 
   return function () {
     console.log(`Call native function ${name}`);
@@ -35,6 +35,7 @@ const Types = /** @type {const} */ ([
   "readFile",
   "performTask",
   "exit",
+  "flash",
 ]);
 
 /** @type {Record<typeof Types[number], Function>} */
