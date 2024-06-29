@@ -4,9 +4,10 @@ import Native from "../native";
 export function now() {
     const time = new Date(Date.now() + GMT_PARALLAX);
     return {
-        time,
-        month: `${time.getUTCMonth() + 1}`,
-        date: `${time.getUTCDate()}`,
+      time,
+      year: `${time.getUTCFullYear()}`,
+      month: `${time.getUTCMonth() + 1}`,
+      date: `${time.getUTCDate()}`,
     };
 }
 
