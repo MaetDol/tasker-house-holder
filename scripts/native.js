@@ -25,6 +25,7 @@ function createPlaceholder( name ) {
 }
 
 const Types = /** @type {const} */ ([
+  "local",
   "global",
   "listFiles",
   "createDir",
