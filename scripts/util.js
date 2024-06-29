@@ -1,5 +1,10 @@
 import { Data } from './classes.js';
-import { FILE_PATH, GLOBAL_UPDATED_DATE, GMT_PARALLAX } from "./constant.js";
+import {
+  FILE_DIR,
+  FILE_PATH,
+  GLOBAL_UPDATED_DATE,
+  GMT_PARALLAX,
+} from "./constant.js";
 import Native from "./native.js";
 import { now } from "./utils/date-utils.js";
 
