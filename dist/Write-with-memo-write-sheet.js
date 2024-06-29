@@ -1,5 +1,5 @@
-const FILE_DIR$1 = 'Download/uhab/';
-const FILE_PATH = FILE_DIR$1 + 'storeList';
+const FILE_DIR = 'Download/uhab/';
+const FILE_PATH = FILE_DIR + 'storeList';
 
 const GMT_PARALLAX = 9 * 60*60*1000;
 
