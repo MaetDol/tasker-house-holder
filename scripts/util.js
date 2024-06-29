@@ -1,5 +1,5 @@
 import { Data } from './classes.js';
-import { GLOBAL_UPDATED_DATE, GMT_PARALLAX } from './constant.js';
+import { FILE_PATH, GLOBAL_UPDATED_DATE, GMT_PARALLAX } from "./constant.js";
 import Native from "./native.js";
 
 export function isDirExists( path ) {

@@ -58,7 +58,7 @@ export class Data {
 
   toLocal() {
     Object.entries( this.data ).forEach(([k,v]) =>
-      setLocal( k, v )
+      Native.setLocal( k, v )
     );
   }
   
