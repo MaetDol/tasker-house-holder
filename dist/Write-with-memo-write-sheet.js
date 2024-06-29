@@ -1,19 +1,33 @@
-const FILE_DIR$1 = 'Download/uhab/';
-const FILE_PATH$1 = FILE_DIR$1 + 'storeList';
+const FILE_DIR = 'Download/uhab/';
+const FILE_PATH = FILE_DIR + 'storeList';
 
-const GMT_PARALLAX$1 = 9 * 60*60*1000;
+const GMT_PARALLAX = 9 * 60*60*1000;
 
-const GLOBAL_UPDATED_DATE$1 = 'UHAB_last_date';
+const GLOBAL_UPDATED_DATE = 'UHAB_last_date';
 const GLOBAL_NOTIFY = 'UHAB_last_notify';
-const GLOBAL_SHEET_LINK$1 = 'UHAB_spreadsheet_url';
+const GLOBAL_SHEET_LINK = 'UHAB_spreadsheet_url';
 
 const DATA_SEPARATOR = '™';
 const ROW_SEPARATOR = '¶™¶';
 
 function createPlaceholder( name ) {
-	if (globalThis[name]) {
-    return globalThis[name].bind(globalThis);
-  }
+	if (typeof globalThis !== "undefined") {
+		if (typeof globalThis[name] === "function") {
+			return globalThis[name].bind(globalThis);
+		}
+	}
+
+	if (typeof window !== "undefined") {
+		if (typeof window[name] === "function") {
+			return window[name].bind(window);
+		}
+	}
+	
+	try {
+	if (typeof eval(name) === "function") {
+		return eval(name);
+	}
+  } catch (e) {}
 
   return function () {
     console.log(`Call native function ${name}`);
@@ -21,19 +35,39 @@ function createPlaceholder( name ) {
   };
 }
 
-const Types = [
-	'global',
-	'listFiles',
-	'createDir',
-	'writeFile',
-	'readFile',
-	'performTask'
-];
+const Types = /** @type {const} */ ([
+  "setLocal",
+  "local",
+  "setGlobal",
+  "global",
+  "listFiles",
+  "createDir",
+  "writeFile",
+  "readFile",
+  "performTask",
+  "exit",
+  "flash",
+]);
 
-var Native = Types.reduce((Native, name) => {
-	Native[name] = createPlaceholder( name );
-	return Native;
+/** @type {Record<typeof Types[number], Function>} */
+const Native = Types.reduce((Native, name) => {
+  Native[name] = createPlaceholder(name);
+  return Native;
 }, {});
+
+function now() {
+    const time = new Date(Date.now() + GMT_PARALLAX);
+    return {
+        time,
+        month: `${time.getUTCMonth() + 1}`,
+        date: `${time.getUTCDate()}`,
+    };
+}
+
+function isFirstWriteOfToday() {
+    const lastWriteDate = Native.global(GLOBAL_UPDATED_DATE);
+    return lastWriteDate !== now().date;
+}
 
 class Purchase {
   constructor( msg, parserCls ) {
@@ -48,6 +82,14 @@ class Purchase {
 }
 
 class Data {
+
+  static Props = /** @type {const} */ ({
+    STORE: 'store',
+    PRICE: 'price',
+    TYPE: 'type',
+    MEMO: 'memo',
+  });
+
   constructor({
     price= '',
     type= '',
@@ -83,7 +125,7 @@ class Data {
 
   toLocal() {
     Object.entries( this.data ).forEach(([k,v]) =>
-      setLocal( k, v )
+      Native.setLocal( k, v )
     );
   }
   
@@ -245,20 +287,6 @@ function writeTo( path, str ) {
   Native.writeFile(path, str, true);
 }
 
-function now$1() {
-  const time = new Date( Date.now() + GMT_PARALLAX );
-  return {
-    time,
-    month: `${time.getUTCMonth() + 1}`,
-    date: `${time.getUTCDate()}`,
-  }; 
-}
-
-function isFirstWriteOfToday$1() {
-  const lastWriteDate = Native.global(GLOBAL_UPDATED_DATE);
-  return lastWriteDate !== now$1().date;
-}
-
 function getStore( store ) {
   const stores = Native.readFile(FILE_PATH)
     .split("\n")
@@ -283,46 +311,18 @@ function writeSheet( data ) {
   Native.performTask("🏡 Write google sheet", 9, data.toSheetFormat());
 }
 
-function main(sms, parser = ShinhanSOLPay) {
-   const purchase = new Purchase(sms, parser);
-   if (purchase.isNot) Native.exit();
+main();
 
-   createStoreFile();
-   flushPreviousNotification();
+function main() {
+  const price = Native.local("price");
+  const type = Native.local("type");
+  const memo = Native.local("memo");
 
-   const storeData = getStore(purchase.data.get("store"));
-   if (storeData) writePurchaseInfo(storeData, purchase);
-   else {
-     purchase.data.set("type", "기타");
-     notifyNewStore(purchase.data);
-   }
- }
+  const data = new Data({
+    price,
+    type,
+    memo,
+  });
 
- function createStoreFile() {
-   if (!isDirExists(FILE_DIR)) createDirectory(FILE_DIR);
-   writeTo(FILE_PATH, "");
- }
-
- function flushPreviousNotification() {
-   const notifyInfo = Native.global(GLOBAL_NOTIFY);
-   if (notifyInfo) {
-     const notifyData = Data.fromNotifyFormat(notifyInfo);
-     writeSheet(notifyData);
-   }
- }
-
- function writePurchaseInfo(storeData, purchase) {
-   const data = new Data({
-     price: purchase.data.get("price"),
-     type: storeData.get("type"),
-     memo: storeData.get("memo"),
-   });
-
-   notify({
-     title: "메모 완료!",
-     text: `${data.get("memo")}에서 ${data.get(
-       "price"
-     )}원을 결제하셨네요. 기록해둘게요!`,
-   });
-   writeSheet(data);
- }
+  writeSheet(data);
+}
