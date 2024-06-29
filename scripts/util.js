@@ -1,6 +1,7 @@
 import { Data } from './classes.js';
 import { FILE_PATH, GLOBAL_UPDATED_DATE, GMT_PARALLAX } from "./constant.js";
 import Native from "./native.js";
+import { now } from "./utils/date-utils.js";
 
 export function isDirExists( path ) {
   try {
@@ -43,3 +44,11 @@ export function writeSheet( data ) {
   Native.performTask("🏡 Write google sheet", 9, data.toSheetFormat());
 }
 
+export function log(msg) {
+  const logName = `${FILE_DIR}/log_${now().year}${now().month}${now().date}`;
+  const timestamp = new Date(Date.now() + GMT_PARALLAX)
+    .toISOString()
+    .slice(0, -5);
+
+  writeTo(logName, `[${timestamp}] ${msg}\n`);
+}

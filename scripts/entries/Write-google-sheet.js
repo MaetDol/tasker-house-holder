@@ -1,7 +1,7 @@
 import { Spreadsheet } from "../classes";
 import { GLOBAL_UPDATED_DATE } from "../constant";
 import Native from "../native";
-import { clearNotify, notify } from "../util";
+import { clearNotify, log, notify } from "../util";
 import { now } from "../utils/date-utils";
 
 main();
@@ -22,8 +22,10 @@ function main() {
       notify({
         title: "Failed append pay info",
         text: `
-Reason: ${JSON.stringify(e, null, 2)}
+Reason: ${e}
 Pay info: ${Native.local("par1")}`,
       });
+
+      log(`Failed append pay info: ${e}`);
     });
 }
