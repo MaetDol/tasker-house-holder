@@ -15,6 +15,10 @@ const entryBuildOptions = entryFiles.map((file) => ({
     dir: "dist/",
     format: "es",
   },
+  onwarn: (warning, warn) => {
+    if (warning.code === "EVAL") return;
+    warn(warning);
+  },
 }));
 
 export default entryBuildOptions;
