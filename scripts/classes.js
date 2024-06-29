@@ -15,6 +15,14 @@ export class Purchase {
 }
 
 export class Data {
+
+  static Props = /** @type {const} */ ({
+    STORE: 'store',
+    PRICE: 'price',
+    TYPE: 'type',
+    MEMO: 'memo',
+  });
+
   constructor({
     price= '',
     type= '',
