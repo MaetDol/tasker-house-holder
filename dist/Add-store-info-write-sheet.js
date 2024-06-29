@@ -1,5 +1,5 @@
-const FILE_DIR = 'Download/uhab/';
-const FILE_PATH = FILE_DIR + 'storeList';
+const FILE_DIR$1 = 'Download/uhab/';
+const FILE_PATH = FILE_DIR$1 + 'storeList';
 
 const GMT_PARALLAX = 9 * 60*60*1000;
 
@@ -58,9 +58,10 @@ const Native = Types.reduce((Native, name) => {
 function now() {
     const time = new Date(Date.now() + GMT_PARALLAX);
     return {
-        time,
-        month: `${time.getUTCMonth() + 1}`,
-        date: `${time.getUTCDate()}`,
+      time,
+      year: `${time.getUTCFullYear()}`,
+      month: `${time.getUTCMonth() + 1}`,
+      date: `${time.getUTCDate()}`,
     };
 }
 
@@ -309,6 +310,15 @@ function notifyNewStore( data ) {
 
 function writeSheet( data ) {
   Native.performTask("🏡 Write google sheet", 9, data.toSheetFormat());
+}
+
+function log(msg) {
+  const logName = `${FILE_DIR}/log_${now().year}${now().month}${now().date}`;
+  const timestamp = new Date(Date.now() + GMT_PARALLAX)
+    .toISOString()
+    .slice(0, -5);
+
+  writeTo(logName, `[${timestamp}] ${msg}\n`);
 }
 
 main();
