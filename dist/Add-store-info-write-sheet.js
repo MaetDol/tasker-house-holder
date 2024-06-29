@@ -70,6 +70,59 @@ function isFirstWriteOfToday() {
     return lastWriteDate !== now().date;
 }
 
+function isDirExists( path ) {
+  try {
+    Native.listFiles(path);
+  } catch (_) {
+    return false;
+  }
+  return true;
+}
+
+function createDirectory( path ) {
+  Native.createDir(path, true);
+}
+
+function writeTo( path, str ) {
+  Native.writeFile(path, str, true);
+}
+
+function getStore( store ) {
+  const stores = Native.readFile(FILE_PATH)
+    .split("\n")
+    .map((r) => r.split(";"))
+    .map(([type, store, memo]) => new Data({ type, store, memo }));
+  return stores.find( s => s.get('store') === store );
+}
+
+function clearNotify(){
+  Native.performTask("🏡 Clear notify", 10);
+}
+
+function notify({ title, text }) {
+  Native.performTask("🏡 Notify", 1, title, text);
+}
+
+function notifyNewStore( data ) {
+  Native.performTask("🏡 Notify new store", 1, data.toNotifyFormat());
+}
+
+function writeSheet( data ) {
+  Native.performTask("🏡 Write google sheet", 9, data.toSheetFormat());
+}
+
+function log(msg) {
+  const logName = `${FILE_DIR}/log_${now().year}${now().month.padStart(
+    2,
+    "0"
+  )}${now().date.padStart(2, "0")}`;
+  const timestamp = new Date(Date.now() + GMT_PARALLAX)
+    .toISOString()
+    .slice(0, -5);
+
+  writeTo(logName, `[${timestamp}] ${msg}\n`);
+}
+
 class Purchase {
   constructor( msg, parserCls ) {
     this.parser = new parserCls( msg );
@@ -267,58 +320,9 @@ class Spreadsheet {
     const { queryString, options } = this.options[this.UPDATE];
     const url = this.#valuesUrl( this.sheet, `A${lastRow+1}`, queryString );
 
+    log(url);
     return this.#request( url, {...options, body: data} );
   }
-}
-
-function isDirExists( path ) {
-  try {
-    Native.listFiles(path);
-  } catch (_) {
-    return false;
-  }
-  return true;
-}
-
-function createDirectory( path ) {
-  Native.createDir(path, true);
-}
-
-function writeTo( path, str ) {
-  Native.writeFile(path, str, true);
-}
-
-function getStore( store ) {
-  const stores = Native.readFile(FILE_PATH)
-    .split("\n")
-    .map((r) => r.split(";"))
-    .map(([type, store, memo]) => new Data({ type, store, memo }));
-  return stores.find( s => s.get('store') === store );
-}
-
-function clearNotify(){
-  Native.performTask("🏡 Clear notify", 10);
-}
-
-function notify({ title, text }) {
-  Native.performTask("🏡 Notify", 1, title, text);
-}
-
-function notifyNewStore( data ) {
-  Native.performTask("🏡 Notify new store", 1, data.toNotifyFormat());
-}
-
-function writeSheet( data ) {
-  Native.performTask("🏡 Write google sheet", 9, data.toSheetFormat());
-}
-
-function log(msg) {
-  const logName = `${FILE_DIR}/log_${now().year}${now().month}${now().date}`;
-  const timestamp = new Date(Date.now() + GMT_PARALLAX)
-    .toISOString()
-    .slice(0, -5);
-
-  writeTo(logName, `[${timestamp}] ${msg}\n`);
 }
 
 main();
