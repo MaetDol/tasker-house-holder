@@ -1,9 +1,13 @@
 import { Data } from "../classes";
 import Native from "../native";
-import { writeSheet } from "../util";
+import { log, writeSheet } from "../util";
 import "../main";
 
-main();
+try {
+  main();
+} catch (e) {
+  log(`Write-with-memo-write-sheet.js: ${e}`);
+}
 
 function main() {
   const price = Native.local("price");

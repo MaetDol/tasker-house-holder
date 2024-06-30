@@ -5,7 +5,11 @@ import { clearNotify, log, notify } from "../util";
 import { now } from "../utils/date-utils";
 import "../main";
 
-main();
+try {
+  main();
+} catch (e) {
+  log(`Write-google-sheet.js: ${e}`);
+}
 
 function main() {
   clearNotify();

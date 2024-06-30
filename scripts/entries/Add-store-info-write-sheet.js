@@ -1,10 +1,14 @@
 import { Data } from "../classes";
 import { FILE_PATH } from "../constant";
 import Native from "../native";
-import { writeSheet, writeTo } from "../util";
+import { log, writeSheet, writeTo } from "../util";
 import "../main";
 
-main();
+try {
+  main();
+} catch (e) {
+  log(`Add-store-info-write-sheet.js: ${e}`);
+}
 
 function main() {
   // add_store_form.html 에서 받은 데이터

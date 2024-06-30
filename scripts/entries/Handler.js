@@ -5,6 +5,7 @@ import {
   createDirectory,
   getStore,
   isDirExists,
+  log,
   notify,
   notifyNewStore,
   writeSheet,
@@ -12,8 +13,13 @@ import {
 } from "../util";
 import "../main";
 
-// Notification 이벤트의 Text 값
-main(Native.local("evtprm3"), ShinhanSOLPay);
+try {
+  // Notification 이벤트의 Text 값
+  main(Native.local("evtprm3"), ShinhanSOLPay);
+} catch (e) {
+  log(`Handler.js: ${e}`);
+}
+
 
 /**
  *

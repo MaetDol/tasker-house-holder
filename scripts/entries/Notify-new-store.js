@@ -2,8 +2,13 @@ import { Data } from "../classes";
 import { GLOBAL_NOTIFY } from "../constant";
 import Native from "../native";
 import "../main";
+import { log } from "../util";
 
-main();
+try {
+  main();
+} catch (e) {
+  log(`Notify-new-store.js: ${e}`);
+}
 
 function main() {
   const notifyFormattedData = Native.local("par1");
