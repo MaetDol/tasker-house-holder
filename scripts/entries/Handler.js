@@ -10,6 +10,7 @@ import {
   writeSheet,
   writeTo,
 } from "../util";
+import "../main";
 
 // Notification 이벤트의 Text 값
 main(Native.local("evtprm3"), ShinhanSOLPay);

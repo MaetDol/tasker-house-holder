@@ -1,6 +1,7 @@
 import { Data } from "../classes";
 import { GLOBAL_NOTIFY } from "../constant";
 import Native from "../native";
+import "../main";
 
 main();
 

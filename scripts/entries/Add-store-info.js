@@ -1,5 +1,6 @@
 import { Data } from "../classes";
 import Native from "../native";
+import "../main";
 
 main();
 

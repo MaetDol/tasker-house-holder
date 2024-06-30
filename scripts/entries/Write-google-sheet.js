@@ -3,6 +3,7 @@ import { GLOBAL_UPDATED_DATE } from "../constant";
 import Native from "../native";
 import { clearNotify, log, notify } from "../util";
 import { now } from "../utils/date-utils";
+import "../main";
 
 main();
 

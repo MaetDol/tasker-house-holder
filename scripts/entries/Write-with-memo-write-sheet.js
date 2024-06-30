@@ -1,6 +1,7 @@
 import { Data } from "../classes";
 import Native from "../native";
 import { writeSheet } from "../util";
+import "../main";
 
 main();
 

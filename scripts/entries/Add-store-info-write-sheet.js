@@ -2,6 +2,7 @@ import { Data } from "../classes";
 import { FILE_PATH } from "../constant";
 import Native from "../native";
 import { writeSheet, writeTo } from "../util";
+import "../main";
 
 main();
 

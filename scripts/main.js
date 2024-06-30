@@ -1,56 +1,12 @@
-import { FILE_DIR, FILE_PATH, GLOBAL_NOTIFY } from './constant.js';
-import { Purchase, Data, ShinhanCheckParser, ShinhanSOLPay } from './classes.js';
-import { 
-  getStore, 
-  notifyNewStore,
-  isDirExists,
-  createDirectory,
-  writeTo,
-  writeSheet,
-  notify,
-} from './util.js';
-import Native from "./native.js";
+import { log } from "./util";
 
- function main(sms, parser = ShinhanSOLPay) {
-   const purchase = new Purchase(sms, parser);
-   if (purchase.isNot) Native.exit();
+main();
 
-   createStoreFile();
-   flushPreviousNotification();
-
-   const storeData = getStore(purchase.data.get("store"));
-   if (storeData) writePurchaseInfo(storeData, purchase);
-   else {
-     purchase.data.set("type", "기타");
-     notifyNewStore(purchase.data);
-   }
- }
-
- function createStoreFile() {
-   if (!isDirExists(FILE_DIR)) createDirectory(FILE_DIR);
-   writeTo(FILE_PATH, "");
- }
-
- function flushPreviousNotification() {
-   const notifyInfo = Native.global(GLOBAL_NOTIFY);
-   if (notifyInfo) {
-     const notifyData = Data.fromNotifyFormat(notifyInfo);
-     writeSheet(notifyData);
-   }
- }
-
- function writePurchaseInfo(storeData, purchase) {
-   const data = new Data({
-     price: purchase.data.get("price"),
-     type: storeData.get("type"),
-     memo: storeData.get("memo"),
-   });
-
-   notify({
-     title: "메모 완료!",
-     text: `${data.get("memo")}에서 ${data.get(
-       "price"
-     )}원을 결제하셨네요. 기록해둘게요!`,
-   });
-   writeSheet(data);
- }
+function main() {
+  if (typeof window !== "undefined") {
+    window.onerror = function (message, source, lineno, colno, error) {
+      log(`GLOBAL: ${message} at ${source}:${lineno}:${colno}
+error: ${error}`);
+    };
+  }
+}
