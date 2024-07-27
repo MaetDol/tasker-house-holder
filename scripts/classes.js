@@ -97,7 +97,48 @@ export class Parser {
 	}
 }
 
+export class ShinhanMsgParser extends Parser {
+	/* ex)
+[Web발신]
+신한(0339)해외승인 이*민 10.00 달러       (US)07/19 02:13 GITHUB, IN 누적3,617,796원
+
+// 또는..
+
+[Web발신]
+신한(0339)해외승인 이*민 KRW 37,681       (SE)07/27 10:02 AliExpress 누적4,308,807원
+  */
+	parse(msg) {
+		const isPurchase = msg.match(/신한\(\d{4}\)(해외)?승인/);
+		if (!isPurchase) {
+			this._failed = true;
+			return;
+		}
+
+		const EXCHANGE_REG =
+			/((\w+)|[\d\.]+) ([\d\.,]+|([a-zA-Z가-힣]+))(?=\s{3,})/;
+		const [, , prefix, price1, , suffix, price2] = msg.match(EXCHANGE_REG);
+
+		const won = this.exchangeRate[suffix || prefix](
+			(price1 || price2).replace(/,/g, ''),
+		);
+
+		const STORE_REG = /\s{3,}.+\d{2}:\d{2} (.+) 누적[\d,]+원/;
+		const [, store] = msg.match(STORE_REG);
+
+		return new Data({
+			price: won,
+			store: store,
+		});
+	}
+}
+
 export class ShinhanCheckParser extends Parser {
+	/* ex)
+[Web발신]
+신한체크해외승인 이*민(2078) 06/13 22:56
+6.45 달러 (FR)Patreon* Membership
+  */
+
 	parse(msg) {
 		const isPurchase = msg.match(/신한체크(해외)?승인/);
 		if (!isPurchase) {
@@ -119,6 +160,16 @@ export class ShinhanCheckParser extends Parser {
 }
 
 export class ShinhanSOLPay extends Parser {
+	/*
+[신한카드(0339)승인] 이*민
+- 승인금액: 5,300원(일시불)
+- 승인일시: 06/25 16:53
+- 가맹점명: 네이버페이
+- 누적금액: 2,351,951원
+
+[신한카드 1544-7000]
+
+  */
 	parse(msg) {
 		const isPurchase = /\[신한카드\(\d+\)승인\]/.test(msg);
 		if (!isPurchase) {
