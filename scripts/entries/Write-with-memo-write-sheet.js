@@ -1,24 +1,24 @@
-import { Data } from "../classes";
-import Native from "../native";
-import { log, writeSheet } from "../util";
-import "../main";
+import { Data } from '../classes';
+import Native from '../native';
+import { log, writeSheet } from '../util';
+import '../main';
 
 try {
-  main();
+	main();
 } catch (e) {
-  log(`Write-with-memo-write-sheet.js: ${e}`);
+	log(`Write-with-memo-write-sheet.js: ${e}`);
 }
 
 function main() {
-  const price = Native.local("price");
-  const type = Native.local("type");
-  const memo = Native.local("memo");
+	const price = Native.local('price');
+	const type = Native.local('type');
+	const memo = Native.local('memo');
 
-  const data = new Data({
-    price,
-    type,
-    memo,
-  });
+	const data = new Data({
+		price,
+		type,
+		memo,
+	});
 
-  writeSheet(data);
+	writeSheet(data);
 }

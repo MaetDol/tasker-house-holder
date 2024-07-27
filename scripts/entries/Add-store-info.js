@@ -1,14 +1,14 @@
-import { Data } from "../classes";
-import Native from "../native";
-import "../main";
-import { log } from "../util";
+import { Data } from '../classes';
+import Native from '../native';
+import '../main';
+import { log } from '../util';
 
 try {
-  main();
+	main();
 } catch (e) {
-  log(`Add-store-info.js: ${e}`);
+	log(`Add-store-info.js: ${e}`);
 }
 
 function main() {
-  Data.fromNotifyFormat(Native.local("par1")).toLocal();
+	Data.fromNotifyFormat(Native.local('par1')).toLocal();
 }
