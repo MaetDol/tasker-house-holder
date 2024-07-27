@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Tasker 의 Task와 HTML form, JS로 만든 가계부입니다. \\ 기본적인 흐름은 아래의 flowchart와 같이 이루어집니다. \\ ![flowchart image](https://github.com/MaetDol/tasker-house-holder/blob/master/flowchart.png)",
   "private": true,
+  "type": "module",
   "directories": {
     "test": "test"
   },
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/MaetDol/tasker-house-holder#readme",
   "devDependencies": {
+    "prettier": "^3.3.3",
     "rollup": "^2.45.2"
   }
 }
