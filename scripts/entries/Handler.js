@@ -1,5 +1,12 @@
-import { Data, Parser, Purchase, ShinhanSOLPay } from '../classes';
+import {
+	Data,
+	Purchase,
+	ShinhanCheckParser,
+	ShinhanMsgParser,
+	ShinhanSOLPay,
+} from '../classes';
 import { FILE_DIR, FILE_PATH, GLOBAL_NOTIFY } from '../constant';
+import '../main';
 import Native from '../native';
 import {
 	createDirectory,
@@ -11,24 +18,27 @@ import {
 	writeSheet,
 	writeTo,
 } from '../util';
-import '../main';
 
 try {
 	// Notification 이벤트의 Text 값
-	main(Native.local('evtprm3'), ShinhanSOLPay);
+	const smsText = Native.local('evtprm3');
+
+	[ShinhanCheckParser, ShinhanMsgParser, ShinhanSOLPay].some((parser) => {
+		const purchase = new Purchase(smsText, parser);
+		if (purchase.isNot) return false;
+
+		main(purchase);
+		return true;
+	});
 } catch (e) {
 	log(`Handler.js: ${e}`);
 }
 
 /**
  *
- * @param {string} sms
- * @param {typeof Parser} parser
+ * @param {Purchase} purchase
  */
-function main(sms, parser = ShinhanSOLPay) {
-	const purchase = new Purchase(sms, parser);
-	if (purchase.isNot) Native.exit();
-
+function main(purchase) {
 	createStoreFile();
 	flushPreviousNotification();
 
