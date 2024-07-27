@@ -1,30 +1,57 @@
-<TaskerData sr="" dvi="1" tv="5.11.14">
-	<dmetric>1080.0,2088.0</dmetric>
-	<Profile sr="prof46" ve="2">
-		<cdate>1614003748605</cdate>
-		<edate>1614140854173</edate>
-		<id>46</id>
-		<mid0>42</mid0>
-		<nme>🏡 Detect message</nme>
+<TaskerData sr="" dvi="1" tv="6.3.13">
+	<dmetric>1080.0,2214.0</dmetric>
+	<Profile sr="prof3" ve="2">
+		<cdate>1721339132053</cdate>
+		<edate>1722047185543</edate>
+		<flags>10</flags>
+		<id>3</id>
+		<mid0>4</mid0>
+		<nme>🏡 Detect MMS</nme>
 		<Event sr="con0" ve="2">
 			<code>7</code>
 			<pri>0</pri>
 			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3">신한결제</Str>
+			<Str sr="arg1" ve="3"/>
 			<Str sr="arg2" ve="3"/>
 			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+		</Event>
+	</Profile>
+	<Profile sr="prof9" ve="2">
+		<cdate>1719643752932</cdate>
+		<edate>1722047171862</edate>
+		<flags>8</flags>
+		<id>9</id>
+		<mid0>42</mid0>
+		<nme>🏡 Detect SOL App Noti</nme>
+		<Event sr="con0" ve="2">
+			<code>461</code>
+			<pri>0</pri>
+			<App sr="arg0">
+				<appClass>com.shcard.smartpay.ui.activity.splash.IntroActivity</appClass>
+				<appPkg>com.shcard.smartpay</appPkg>
+				<label>신한카드</label>
+			</App>
+			<Str sr="arg1" ve="3"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Int sr="arg7" val="0"/>
 		</Event>
 	</Profile>
 	<Project sr="proj0" ve="2">
 		<cdate>1613997679523</cdate>
+		<mdate>1722047218302</mdate>
 		<name>🏡 Holder</name>
-		<pids>46</pids>
+		<pids>9,3</pids>
 		<scenes>🏡 add store form,🏡 memo query</scenes>
-		<tids>42,38,44,45,43,37,41,40</tids>
+		<tids>42,4,38,44,45,43,41,40,39,7</tids>
 	</Project>
 	<Scene sr="scene🏡 add store form">
 		<cdate>1571448665846</cdate>
-		<edate>1613993178408</edate>
+		<edate>1719635127849</edate>
 		<gridSize>10</gridSize>
 		<heightLand>562</heightLand>
 		<heightPort>2088</heightPort>
@@ -42,6 +69,7 @@
 			<Int sr="arg5" val="0"/>
 			<Int sr="arg6" val="0"/>
 			<Int sr="arg7" val="0"/>
+			<Str sr="arg8" ve="3"/>
 			<RectElement sr="background">
 				<flags>4</flags>
 				<geom>-1,-1,-1,-1,-1,-1,-1,-1</geom>
@@ -85,6 +113,7 @@
 			<Int sr="arg5" val="0"/>
 			<Int sr="arg6" val="0"/>
 			<Int sr="arg7" val="0"/>
+			<Str sr="arg8" ve="3"/>
 			<RectElement sr="background">
 				<flags>4</flags>
 				<geom>-1,-1,-1,-1,-1,-1,-1,-1</geom>
@@ -111,24 +140,14 @@
 	</Scene>
 	<Task sr="task38">
 		<cdate>1571908869714</cdate>
-		<edate>1614141503844</edate>
+		<edate>1720359340679</edate>
 		<id>38</id>
 		<nme>🏡 Notify new store</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
-			<code>129</code>
-			<label>Split par1</label>
-			<Str sr="arg0" ve="3">setGlobal( 
-    GLOBAL_NOTIFY,
-    local('par1'),
-);
-
-let data = Data.fromNotifyFormat( local('par1') );
-data.set('memo', data.get('store'));
-data.toLocal();
-
-var sheet_format = data.toSheetFormat();</Str>
-			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
+			<code>131</code>
+			<Str sr="arg0" ve="3">%UHAB_JS_path/Notify-new-store.js</Str>
+			<Str sr="arg1" ve="3"/>
 			<Int sr="arg2" val="1"/>
 			<Int sr="arg3" val="45"/>
 		</Action>
@@ -138,14 +157,15 @@ var sheet_format = data.toSheetFormat();</Str>
 			<Str sr="arg1" ve="3">%store 에서 %price 원만큼 결제한 내역을 %type 로 기록해둘까요?</Str>
 			<Str sr="arg10" ve="3"/>
 			<Str sr="arg11" ve="3">UHAB</Str>
+			<Str sr="arg12" ve="3"/>
 			<Img sr="arg2" ve="2">
 				<nme>mw_action_shopping_cart</nme>
 			</Img>
 			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
+			<Int sr="arg4" val="1"/>
 			<Int sr="arg5" val="3"/>
 			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="2"/>
+			<Int sr="arg7" val="0"/>
 			<Int sr="arg8" val="0"/>
 			<Str sr="arg9" ve="3"/>
 			<ListElementItem sr="item0">
@@ -156,6 +176,7 @@ var sheet_format = data.toSheetFormat();</Str>
 					<Int sr="arg1">
 						<var>%priority</var>
 					</Int>
+					<Int sr="arg10" val="0"/>
 					<Str sr="arg2" ve="3">%par1</Str>
 					<Str sr="arg3" ve="3"/>
 					<Str sr="arg4" ve="3"/>
@@ -174,6 +195,7 @@ var sheet_format = data.toSheetFormat();</Str>
 					<Int sr="arg1">
 						<var>%priority</var>
 					</Int>
+					<Int sr="arg10" val="0"/>
 					<Str sr="arg2" ve="3">%par1</Str>
 					<Str sr="arg3" ve="3"/>
 					<Str sr="arg4" ve="3"/>
@@ -192,6 +214,7 @@ var sheet_format = data.toSheetFormat();</Str>
 					<Int sr="arg1">
 						<var>%priority</var>
 					</Int>
+					<Int sr="arg10" val="0"/>
 					<Str sr="arg2" ve="3">%sheet_format</Str>
 					<Str sr="arg3" ve="3"/>
 					<Str sr="arg4" ve="3"/>
@@ -206,7 +229,7 @@ var sheet_format = data.toSheetFormat();</Str>
 	</Task>
 	<Task sr="task39">
 		<cdate>1605858105433</cdate>
-		<edate>1614141449992</edate>
+		<edate>1720359314549</edate>
 		<id>39</id>
 		<nme>🏡 Notify</nme>
 		<pri>100</pri>
@@ -216,6 +239,7 @@ var sheet_format = data.toSheetFormat();</Str>
 			<Str sr="arg1" ve="3">%par2</Str>
 			<Str sr="arg10" ve="3"/>
 			<Str sr="arg11" ve="3">🏡</Str>
+			<Str sr="arg12" ve="3"/>
 			<Img sr="arg2" ve="2">
 				<nme>mw_action_assignment_turned_in</nme>
 			</Img>
@@ -228,14 +252,65 @@ var sheet_format = data.toSheetFormat();</Str>
 			<Str sr="arg9" ve="3"/>
 		</Action>
 	</Task>
+	<Task sr="task4">
+		<cdate>1722046396094</cdate>
+		<edate>1722047203816</edate>
+		<id>4</id>
+		<nme>🏡 MMS Handler</nme>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%evtprm3</Str>
+			<Str sr="arg1" ve="3">%evtprm5</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">🏡 Handler</Str>
+			<Int sr="arg1">
+				<var>%priority</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="1"/>
+			<Str sr="arg7" ve="3">%evtprm3</Str>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>523</code>
+			<on>false</on>
+			<Str sr="arg0" ve="3">t</Str>
+			<Str sr="arg1" ve="3">%evtprm5</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">qwer</Str>
+			<Str sr="arg12" ve="3"/>
+			<Img sr="arg2" ve="2"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+	</Task>
 	<Task sr="task40">
 		<cdate>1605072877171</cdate>
-		<edate>1614003790841</edate>
+		<edate>1719644181198</edate>
 		<id>40</id>
 		<nme>🏡 Write google sheet</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>512</code>
+			<se>false</se>
 			<Int sr="arg0" val="1"/>
 		</Action>
 		<Action sr="act1" ve="7">
@@ -244,6 +319,7 @@ var sheet_format = data.toSheetFormat();</Str>
 			<Int sr="arg1">
 				<var>%priority</var>
 			</Int>
+			<Int sr="arg10" val="0"/>
 			<Str sr="arg2" ve="3"/>
 			<Str sr="arg3" ve="3"/>
 			<Str sr="arg4" ve="3">%headers</Str>
@@ -254,40 +330,16 @@ var sheet_format = data.toSheetFormat();</Str>
 			<Int sr="arg9" val="0"/>
 		</Action>
 		<Action sr="act2" ve="7">
-			<code>129</code>
-			<Str sr="arg0" ve="3">clearNotify();
-const month = now().month;
-
-new Spreadsheet(
-    `${month}`.padStart(2, 0), 
-    local('headers')
-)
-    .append( local('par1') )
-    .then(_=&gt; {
-        flash('done');
-        setGlobal(
-            GLOBAL_UPDATED_DATE,
-            now().date,
-        );
-        exit();
-    })
-    .catch(e =&gt; {
-        flash(`Failed append data ${e}`);
-        notify({
-            title: 'Failed append pay info',
-            text: 
-`Reason: ${JSON.stringify(e, null, 2)}
-Pay info: ${local('par1')}`,
-        });
-    })</Str>
-			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
+			<code>131</code>
+			<Str sr="arg0" ve="3">%UHAB_JS_path/Write-google-sheet.js</Str>
+			<Str sr="arg1" ve="3"/>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="45"/>
 		</Action>
 	</Task>
 	<Task sr="task41">
 		<cdate>1610094520564</cdate>
-		<edate>1613997775949</edate>
+		<edate>1719644231216</edate>
 		<id>41</id>
 		<nme>🏡 Initial global var</nme>
 		<pri>100</pri>
@@ -306,6 +358,7 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 			<Str sr="arg3" ve="3">directory of repository
 (location of README.md)</Str>
 			<Str sr="arg4" ve="3">/storage/emulated/0/Download</Str>
+			<Int sr="arg5"/>
 		</Action>
 		<Action sr="act1" ve="7">
 			<code>547</code>
@@ -316,40 +369,31 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
 			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
 		</Action>
 		<Action sr="act2" ve="7">
 			<code>547</code>
 			<label>script path</label>
 			<Str sr="arg0" ve="3">%UHAB_JS_path</Str>
-			<Str sr="arg1" ve="3">%UHAB_path/scripts</Str>
+			<Str sr="arg1" ve="3">%UHAB_path/dist</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
 			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
 		</Action>
 		<Action sr="act3" ve="7">
 			<code>547</code>
-			<label>libraries</label>
-			<Str sr="arg0" ve="3">%UHAB_JS_libs</Str>
-			<Str sr="arg1" ve="3">%UHAB_JS_path/constant.js
-%UHAB_JS_path/util.js
-%UHAB_JS_path/classes.js</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>547</code>
 			<label>Sheet url</label>
 			<Str sr="arg0" ve="3">%UHAB_spreadsheet_url</Str>
-			<Str sr="arg1" ve="3">https://docs.google.com/spreadsheets/d/1IW8JpYkQrC_x3AOfnEA-vSk_OqmsC8F895B3QUdwvZA/edit?usp=drivesdk</Str>
+			<Str sr="arg1" ve="3">https://docs.google.com/spreadsheets/d/11pombQlbH2-HZouABiO0Pxsua_KqEAwKFn6xvhbU4h8/</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
 			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
 		</Action>
-		<Action sr="act5" ve="7">
+		<Action sr="act4" ve="7">
 			<code>547</code>
 			<label>Last date variable</label>
 			<Str sr="arg0" ve="3">%UHAB_last_date</Str>
@@ -358,26 +402,27 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
 			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
 		</Action>
 	</Task>
 	<Task sr="task42">
 		<cdate>1610074096426</cdate>
-		<edate>1614210873660</edate>
+		<edate>1722046469954</edate>
 		<id>42</id>
 		<nme>🏡 Handler</nme>
 		<pri>6</pri>
 		<Action sr="act0" ve="7">
 			<code>131</code>
 			<label>Main flow</label>
-			<Str sr="arg0" ve="3">%UHAB_JS_path/main.js</Str>
-			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
+			<Str sr="arg0" ve="3">%UHAB_JS_path/Handler.js</Str>
+			<Str sr="arg1" ve="3"/>
 			<Int sr="arg2" val="1"/>
 			<Int sr="arg3" val="45"/>
 		</Action>
 	</Task>
 	<Task sr="task43">
 		<cdate>1605858105433</cdate>
-		<edate>1613962250230</edate>
+		<edate>1720359374261</edate>
 		<id>43</id>
 		<nme>🏡 Clear notify</nme>
 		<pri>100</pri>
@@ -396,7 +441,7 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 	</Task>
 	<Task sr="task44">
 		<cdate>1571717238107</cdate>
-		<edate>1614141498302</edate>
+		<edate>1720359318053</edate>
 		<id>44</id>
 		<nme>🏡 Add store info</nme>
 		<pri>100</pri>
@@ -405,11 +450,9 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 			<Int sr="arg0" val="1"/>
 		</Action>
 		<Action sr="act1" ve="7">
-			<code>129</code>
-			<label>par1 to local</label>
-			<Str sr="arg0" ve="3">Data.fromNotifyFormat( local('par1') )
-    .toLocal();</Str>
-			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
+			<code>131</code>
+			<Str sr="arg0" ve="3">%UHAB_JS_path/Add-store-info.js</Str>
+			<Str sr="arg1" ve="3"/>
 			<Int sr="arg2" val="1"/>
 			<Int sr="arg3" val="45"/>
 		</Action>
@@ -417,12 +460,15 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 			<code>47</code>
 			<Str sr="arg0" ve="3">🏡 add store form</Str>
 			<Int sr="arg1" val="3"/>
+			<Int sr="arg10" val="0"/>
 			<Int sr="arg2" val="100"/>
 			<Int sr="arg3" val="100"/>
 			<Int sr="arg4" val="0"/>
 			<Int sr="arg5" val="0"/>
 			<Int sr="arg6" val="0"/>
 			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="1"/>
+			<Int sr="arg9" val="0"/>
 		</Action>
 		<Action sr="act3" ve="7">
 			<code>49</code>
@@ -430,6 +476,7 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 		</Action>
 		<Action sr="act4" ve="7">
 			<code>37</code>
+			<coll>false</coll>
 			<ConditionList sr="if">
 				<Condition sr="c0" ve="3">
 					<lhs>%submit</lhs>
@@ -439,46 +486,30 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 			</ConditionList>
 		</Action>
 		<Action sr="act5" ve="7">
-			<code>129</code>
-			<label>Write store info to file</label>
-			<Str sr="arg0" ve="3">writeTo( 
-    FILE_PATH, 
-    `${type};${store};${memo}\n`
-);</Str>
-			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
+			<code>131</code>
+			<Str sr="arg0" ve="3">%UHAB_JS_path/Add-store-info-write-sheet.js</Str>
+			<Str sr="arg1" ve="3"/>
 			<Int sr="arg2" val="1"/>
 			<Int sr="arg3" val="45"/>
 		</Action>
 		<Action sr="act6" ve="7">
-			<code>129</code>
-			<label>Append to sheet</label>
-			<Str sr="arg0" ve="3">const data = new Data({
-    price, type, memo
-});
-writeSheet( data );</Str>
-			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
-			<Int sr="arg2" val="1"/>
-			<Int sr="arg3" val="45"/>
-		</Action>
-		<Action sr="act7" ve="7">
 			<code>38</code>
 		</Action>
 	</Task>
 	<Task sr="task45">
 		<cdate>1612242455743</cdate>
-		<edate>1614141494258</edate>
+		<edate>1720359305773</edate>
 		<id>45</id>
 		<nme>🏡 Write with memo</nme>
-		<pri>7</pri>
+		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>512</code>
 			<Int sr="arg0" val="1"/>
 		</Action>
 		<Action sr="act1" ve="7">
-			<code>129</code>
-			<label>Split par1</label>
-			<Str sr="arg0" ve="3">Data.fromNotifyFormat( local('par1') ).toLocal();</Str>
-			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
+			<code>131</code>
+			<Str sr="arg0" ve="3">%UHAB_JS_path/Write-with-memo.js</Str>
+			<Str sr="arg1" ve="3"/>
 			<Int sr="arg2" val="1"/>
 			<Int sr="arg3" val="45"/>
 		</Action>
@@ -486,12 +517,15 @@ writeSheet( data );</Str>
 			<code>47</code>
 			<Str sr="arg0" ve="3">🏡 memo query</Str>
 			<Int sr="arg1" val="3"/>
+			<Int sr="arg10" val="0"/>
 			<Int sr="arg2" val="100"/>
 			<Int sr="arg3" val="100"/>
 			<Int sr="arg4" val="0"/>
 			<Int sr="arg5" val="0"/>
 			<Int sr="arg6" val="0"/>
 			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="1"/>
+			<Int sr="arg9" val="0"/>
 		</Action>
 		<Action sr="act3" ve="7">
 			<code>49</code>
@@ -508,13 +542,9 @@ writeSheet( data );</Str>
 			</ConditionList>
 		</Action>
 		<Action sr="act5" ve="7">
-			<code>129</code>
-			<label>Append to sheet</label>
-			<Str sr="arg0" ve="3">const data = new Data({
-    price, type, memo
-});
-writeSheet( data );</Str>
-			<Str sr="arg1" ve="3">%UHAB_JS_libs</Str>
+			<code>131</code>
+			<Str sr="arg0" ve="3">%UHAB_JS_path/Write-with-memo-write-sheet.js</Str>
+			<Str sr="arg1" ve="3"/>
 			<Int sr="arg2" val="1"/>
 			<Int sr="arg3" val="45"/>
 		</Action>
@@ -525,5 +555,42 @@ writeSheet( data );</Str>
 			<cls>com.google.android.apps.docs.app.NewMainProxyActivity</cls>
 			<pkg>com.google.android.apps.docs.editors.sheets</pkg>
 		</Img>
+	</Task>
+	<Task sr="task7">
+		<cdate>1719639670619</cdate>
+		<edate>1722047511308</edate>
+		<id>7</id>
+		<nme>🏡 Auth</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>351</code>
+			<on>false</on>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_auth_headers
+Headers
+Use this in the HTTP Request action in the 'Headers' field to authenticate the request&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg2" ve="3">🏡</Str>
+			<Str sr="arg3" ve="3">🏡</Str>
+			<Str sr="arg4" ve="3">🏡</Str>
+			<Str sr="arg5" ve="3">🏡</Str>
+			<Str sr="arg6" ve="3">https://www.googleapis.com/auth/spreadsheets</Str>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="30"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>126</code>
+			<Str sr="arg0" ve="3">%http_auth_headers</Str>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3"/>
+		</Action>
 	</Task>
 </TaskerData>
