@@ -393,6 +393,15 @@ error: ${error}`);
 	}
 }
 
+/**
+ * 
+ * @param {number} ms 
+ * @returns 
+ */
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 try {
 	// Notification 이벤트의 Text 값
 	const smsText = Native.local('evtprm3');
@@ -412,9 +421,9 @@ try {
  *
  * @param {Purchase} purchase
  */
-function main(purchase) {
+async function main(purchase) {
 	createStoreFile();
-	flushPreviousNotification();
+	await flushPreviousNotification();
 
 	const storeData = getStore(purchase.data.get('store'));
 	if (storeData) writePurchaseInfo(storeData, purchase);
@@ -429,11 +438,12 @@ function createStoreFile() {
 	writeTo(FILE_PATH, '');
 }
 
-function flushPreviousNotification() {
+async function flushPreviousNotification() {
 	const notifyInfo = Native.global(GLOBAL_NOTIFY);
 	if (notifyInfo) {
 		const notifyData = Data.fromNotifyFormat(notifyInfo);
 		writeSheet(notifyData);
+    await delay(2000);
 	}
 }
 

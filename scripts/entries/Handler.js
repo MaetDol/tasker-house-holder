@@ -18,6 +18,7 @@ import {
 	writeSheet,
 	writeTo,
 } from '../util';
+import { delay } from '../utils/delay';
 
 try {
 	// Notification 이벤트의 Text 값
@@ -38,9 +39,9 @@ try {
  *
  * @param {Purchase} purchase
  */
-function main(purchase) {
+async function main(purchase) {
 	createStoreFile();
-	flushPreviousNotification();
+	await flushPreviousNotification();
 
 	const storeData = getStore(purchase.data.get('store'));
 	if (storeData) writePurchaseInfo(storeData, purchase);
@@ -55,11 +56,12 @@ function createStoreFile() {
 	writeTo(FILE_PATH, '');
 }
 
-function flushPreviousNotification() {
+async function flushPreviousNotification() {
 	const notifyInfo = Native.global(GLOBAL_NOTIFY);
 	if (notifyInfo) {
 		const notifyData = Data.fromNotifyFormat(notifyInfo);
 		writeSheet(notifyData);
+    await delay(2000)
 	}
 }
 
